@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Represents a corgi
+ */
 public class Corgi : MonoBehaviour
 {
 
@@ -19,6 +22,9 @@ public class Corgi : MonoBehaviour
         updateMovement();
     }
 
+    /**
+     * Moves the corgi depending on which directional key is held down 
+     */
     private void updateMovement()
     {
         //increases y velocity (up to 10) while up key is pressed
