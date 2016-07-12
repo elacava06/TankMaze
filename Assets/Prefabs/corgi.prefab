@@ -77,7 +77,7 @@ MonoBehaviour:
   speed: 8
   eric: 1
   sam: 0
-  projectile: {fileID: 154120}
+  projectile: {fileID: 0}
 --- !u!212 &21243338
 SpriteRenderer:
   m_ObjectHideFlags: 1
