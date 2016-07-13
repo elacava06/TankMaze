@@ -10,9 +10,11 @@ GameObject:
   - 4: {fileID: 410542}
   - 212: {fileID: 21226620}
   - 50: {fileID: 5072414}
+  - 61: {fileID: 6136564}
+  - 114: {fileID: 11448658}
   m_Layer: 0
   m_Name: Shot
-  m_TagString: Untagged
+  m_TagString: shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,6 +49,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &6136564
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193412}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.06, y: 0.35999998}
+--- !u!114 &11448658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b683c6a41adee4d8f2f3bbb97a85e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamNumber: 0
 --- !u!212 &21226620
 SpriteRenderer:
   m_ObjectHideFlags: 1
