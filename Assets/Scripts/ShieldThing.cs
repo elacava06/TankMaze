@@ -7,7 +7,7 @@ public class ShieldThing : MonoBehaviour {
     void Start() {
 
     }
-
+    
     private int rotationSpeed = 0;
     //allows player input of max rotation speed
     public float maxRotationSpeed;
@@ -22,16 +22,18 @@ public class ShieldThing : MonoBehaviour {
         //allows shield to rotate via input
         float change = Input.GetAxis("shield");
         transform.Rotate(Vector3.forward, -change * rotationSpeed);
+
         if (System.Math.Abs(rotationSpeed) < maxRotationSpeed)
         {
-            if (Input.GetKey("v"))
-            {
-                rotationSpeed += 1;
-            }
-            if (Input.GetKey("n"))
-            {
-                rotationSpeed -= 1;
-            }
+            rotationSpeed -= Input.GetAxis("shield");
+            //if (Input.GetKey("v"))
+            //{
+            //    rotationSpeed += 1;
+            //}
+            //if (Input.GetKey("n"))
+            //{
+            //    rotationSpeed -= 1;
+            //}
         }
     }
 

@@ -6,6 +6,7 @@ public class tankBody : MonoBehaviour
     //public variables
     public float turnSpeed;
     public float movementSpeed;
+    public int teamNumber;
 
     //private variables
     private Rigidbody2D body;
@@ -17,6 +18,14 @@ public class tankBody : MonoBehaviour
     void Start()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
+        if (teamNumber == 1)
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
+        else if (teamNumber == 2)
+        {
+            GetComponent<SpriteRenderer>().color = Color.blue;
+        }
     }
 
     // Called once per frame:
@@ -56,31 +65,45 @@ public class tankBody : MonoBehaviour
         {
             if (isHoldingCollectible == false)
             {
-                // Puts collectible on the hood
-                isHoldingCollectible = true;
                 collectibleHolding = trigger.gameObject;
-                collectibleHolding.transform.SetParent(transform);
-                collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = 1;
-                collectibleHolding.transform.localPosition = new Vector3(0, 1.43f, 0);
+
+                // Checks to make sure the collectible is not already claimed by your team
+                if (collectibleHolding.GetComponent<collectible>().claimedTeamNumber != teamNumber)
+                {
+                    //Puts collectible on the hood and unclaims collectible
+                    Debug.Log("parent: " + collectibleHolding.transform.parent);
+                    if (collectibleHolding.transform.parent.gameObject.tag == "collectibleSpawn")
+                    {
+                        collectibleHolding.transform.parent.gameObject.GetComponent<collectibleSpawn>().spawnNewCollectible();
+                    }
+                    isHoldingCollectible = true;
+                    collectibleHolding.transform.parent = null;
+                    collectibleHolding.transform.SetParent(transform);
+                    collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                    collectibleHolding.transform.localPosition = new Vector3(0, 1.43f, 0);
+                    collectibleHolding.GetComponent<collectible>().claimedTeamNumber = -1;
+                }
             }
         }
 
 
         if (trigger.gameObject.tag == "homeBase")
         {
-            Debug.Log("Collision with home base");
             homeBase thisBase = trigger.gameObject.GetComponent<homeBase>();
-            if (thisBase.inUse == false)
+
+            // Checks to make sure the base belongs to your team and isn't already claimed
+            if (thisBase.inUse == false && teamNumber == thisBase.teamNumber)
             {
+                // Checks to make sure you are holding a collectible
                 if (isHoldingCollectible == true)
                 {
-                    Debug.Log("All necessary conditions held");
+                    // Sets the collectible on the base, claims base, claims collectible
                     thisBase.inUse = true;
                     collectibleHolding.transform.parent = null;
                     collectibleHolding.transform.SetParent(thisBase.transform);
                     collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = -1;
                     collectibleHolding.transform.localPosition = new Vector3(0, 0, 0);
-                    //collectibleHolding.GetComponent<Collider2D>();
+                    collectibleHolding.GetComponent<collectible>().claimedTeamNumber = teamNumber;
                     isHoldingCollectible = false;
                 }
             }
