@@ -8,7 +8,7 @@ public class ShieldThing : MonoBehaviour {
 
     }
     
-    private int rotationSpeed = 0;
+    private float rotationSpeed = 0;
     //allows player input of max rotation speed
     public float maxRotationSpeed;
 
@@ -45,8 +45,6 @@ public class ShieldThing : MonoBehaviour {
             Destroy(other.gameObject);
         }
     }
-
-}
 
 }
 
