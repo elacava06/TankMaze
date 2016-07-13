@@ -10,6 +10,7 @@ public class tankBody : MonoBehaviour
     //private variables
     private Rigidbody2D body;
     private GameObject collectibleHolding;
+    private bool isHoldingCollectible = false;
 
 
     // Called once at start:
@@ -48,20 +49,41 @@ public class tankBody : MonoBehaviour
     }
 
 
-    // On collision with the collectible, picks it up if not holding one
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D trigger)
     {
-        if (collision.gameObject.tag == "collectible")
+        // Upon touching collectible, picks it up if not holding one
+        if (trigger.gameObject.tag == "collectible")
         {
-            if (collectibleHolding == null)
+            if (isHoldingCollectible == false)
             {
-                // Sets the collectible on the hood of the tank
-                collectibleHolding = collision.gameObject;
+                // Puts collectible on the hood
+                isHoldingCollectible = true;
+                collectibleHolding = trigger.gameObject;
                 collectibleHolding.transform.SetParent(transform);
                 collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 collectibleHolding.transform.localPosition = new Vector3(0, 1.43f, 0);
             }
-            
+        }
+
+
+        if (trigger.gameObject.tag == "homeBase")
+        {
+            Debug.Log("Collision with home base");
+            homeBase thisBase = trigger.gameObject.GetComponent<homeBase>();
+            if (thisBase.inUse == false)
+            {
+                if (isHoldingCollectible == true)
+                {
+                    Debug.Log("All necessary conditions held");
+                    thisBase.inUse = true;
+                    collectibleHolding.transform.parent = null;
+                    collectibleHolding.transform.SetParent(thisBase.transform);
+                    collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = -1;
+                    collectibleHolding.transform.localPosition = new Vector3(0, 0, 0);
+                    //collectibleHolding.GetComponent<Collider2D>();
+                    isHoldingCollectible = false;
+                }
+            }
         }
     }
 }
