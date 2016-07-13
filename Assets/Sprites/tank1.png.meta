@@ -1,18 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-<<<<<<< HEAD
 guid: fc2423c1170fe6941aeaece3a13d8e01
-timeCreated: 1468346432
-licenseType: Free
-TextureImporter:
-  fileIDToRecycleName: {}
-=======
-guid: 6bef66094abec7947852ff0f245201e6
-timeCreated: 1468340286
-=======
-guid: 5d0c5375e4a7f634098e2ca7c41c6452
-timeCreated: 1468353179
->>>>>>> 1f7acb84afc1c8247411e56cb7ed66c108307b75
+timeCreated: 1468428272
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -22,7 +10,6 @@ TextureImporter:
     21300006: tank1_3
     21300008: tank1_4
     21300010: tank1_5
->>>>>>> d0c80ef56812e697ede9798c30a4117da33e9e40
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -49,11 +36,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-<<<<<<< HEAD
-    aniso: -1
-=======
     aniso: 16
->>>>>>> d0c80ef56812e697ede9798c30a4117da33e9e40
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -61,11 +44,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-<<<<<<< HEAD
-  spriteMode: 1
-=======
   spriteMode: 2
->>>>>>> d0c80ef56812e697ede9798c30a4117da33e9e40
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -76,9 +55,6 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-<<<<<<< HEAD
-    sprites: []
-=======
     sprites:
     - name: tank1_0
       rect:
@@ -317,7 +293,6 @@ TextureImporter:
         - {x: 74, y: -133.5}
         - {x: 81, y: -116.5}
         - {x: 81, y: 109.5}
->>>>>>> d0c80ef56812e697ede9798c30a4117da33e9e40
     outline: []
   spritePackingTag: 
   userData: 
