@@ -8,7 +8,8 @@ public class ShieldThing : MonoBehaviour {
 
     }
 
-    private int rotationSpeed = 0;
+    private float rotationSpeed = 0;
+    public float maxRotationSpeed;
 
     // Update is called once per frame
     void Update() {
@@ -19,16 +20,17 @@ public class ShieldThing : MonoBehaviour {
     {
         float change = Input.GetAxis("shield");
         transform.Rotate(Vector3.forward, -change * rotationSpeed);
-        while (System.Math.Abs(rotationSpeed) < 10)
+        while (System.Math.Abs(rotationSpeed) < maxRotationSpeed)
         {
-            if (Input.GetKey("v"))
-            {
-                rotationSpeed += 1;
-            }
-            if (Input.GetKey("n"))
-            {
-                rotationSpeed -= 1;
-            }
+            rotationSpeed -= Input.GetAxis("shield");
+            //if (Input.GetKey("v"))
+            //{
+            //    rotationSpeed += 1;
+            //}
+            //if (Input.GetKey("n"))
+            //{
+            //    rotationSpeed -= 1;
+            //}
         }
     }
 
