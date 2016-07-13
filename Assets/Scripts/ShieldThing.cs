@@ -9,6 +9,8 @@ public class ShieldThing : MonoBehaviour {
     }
 
     private int rotationSpeed = 0;
+    //allows player input of max rotation speed
+    public float maxRotationSpeed;
 
     // Update is called once per frame
     void Update() {
@@ -17,9 +19,10 @@ public class ShieldThing : MonoBehaviour {
 
     private void incrementRotation()
     {
+        //allows shield to rotate via input
         float change = Input.GetAxis("shield");
         transform.Rotate(Vector3.forward, -change * rotationSpeed);
-        while (System.Math.Abs(rotationSpeed) < 10)
+        if (System.Math.Abs(rotationSpeed) < maxRotationSpeed)
         {
             if (Input.GetKey("v"))
             {
@@ -32,4 +35,16 @@ public class ShieldThing : MonoBehaviour {
         }
     }
 
+    //destroys bullet when it collides with shield
+    private void onTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "shot")
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
 }
+
+}
+
