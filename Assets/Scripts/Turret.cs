@@ -45,7 +45,7 @@ public class Turret : MonoBehaviour {
         if (Input.GetAxis("shoot") > 0 && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            GameObject shotClone = Instantiate(shot, this.transform.GetChild(0).transform.position, this.transform.rotation) as GameObject;
+            GameObject shotClone = Instantiate(shot, this.transform.Find("shotSpawn").transform.position, this.transform.rotation) as GameObject;
             float xDirection = -Mathf.Sin(this.transform.eulerAngles.z * Mathf.Deg2Rad);
             float yDirection = Mathf.Cos(this.transform.eulerAngles.z * Mathf.Deg2Rad);
             shotBody = shotClone.GetComponent<Rigidbody2D>();
