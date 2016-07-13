@@ -70,8 +70,14 @@ public class tankBody : MonoBehaviour
                 // Checks to make sure the collectible is not already claimed by your team
                 if (collectibleHolding.GetComponent<collectible>().claimedTeamNumber != teamNumber)
                 {
-                    // Puts collectible on the hood and unclaims collectible
+                    //Puts collectible on the hood and unclaims collectible
+                    Debug.Log("parent: " + collectibleHolding.transform.parent);
+                    if (collectibleHolding.transform.parent.gameObject.tag == "collectibleSpawn")
+                    {
+                        collectibleHolding.transform.parent.gameObject.GetComponent<collectibleSpawn>().spawnNewCollectible();
+                    }
                     isHoldingCollectible = true;
+                    collectibleHolding.transform.parent = null;
                     collectibleHolding.transform.SetParent(transform);
                     collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = 1;
                     collectibleHolding.transform.localPosition = new Vector3(0, 1.43f, 0);
