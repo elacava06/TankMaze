@@ -34,17 +34,18 @@ public class destroyBlocks : MonoBehaviour {
     {
         Debug.Log("drill called");
         drilling = true;
-        Vector3 originalPosition = transform.position;
+        Vector3 originalPosition = transform.localPosition;
+        Debug.Log(originalPosition);
         body.velocity = transform.rotation * Vector3.up* drillRange/drillTime;
         //Debug.Log(velocity);
         yield return new WaitForSeconds(drillTime);
         //transform.Translate(transform.rotation * Vector3.up * drillRange);
-        float distance = (originalPosition - transform.position).magnitude;
-        body.velocity = (originalPosition - transform.position).normalized * (distance / drillCooldown);
+        float distance = (originalPosition - transform.localPosition).magnitude;
+        body.velocity = (originalPosition - transform.localPosition).normalized * (distance / drillCooldown);
         //Debug.Log(velocity);
         yield return new WaitForSeconds(drillCooldown);
         body.velocity = Vector3.zero;
-        transform.position = originalPosition;
+        transform.localPosition = originalPosition;
         drilling = false;
     }
     void OnCollisionEnter2D(Collision2D coll)
