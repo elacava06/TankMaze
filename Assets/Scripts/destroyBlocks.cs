@@ -7,18 +7,22 @@ public class destroyBlocks : MonoBehaviour {
     public float drillRange;
     public float drillTime;
     public float drillCooldown;
+    private bool drillingCooldown=false;
     private bool drilling=false;
     // Use this for initialization
-    Rigidbody2D body;
+    private Transform drillHead;
+    public Vector3 originalPosition;
 
     void Start () {
-        body = GetComponent<Rigidbody2D>();
+        
+        drillHead = transform.GetChild(0);
+        originalPosition = drillHead.localPosition;
     }
 	
 	// Update is called once per frame
 	void Update () {
         incrementRotation();
-        if(Input.GetAxis("drill") !=0 && !drilling)
+        if(Input.GetAxis("drill") !=0 && !drillingCooldown)
         {
             StartCoroutine(drill());
         }
@@ -34,22 +38,32 @@ public class destroyBlocks : MonoBehaviour {
     {
         Debug.Log("drill called");
         drilling = true;
-        Vector3 originalPosition = transform.localPosition;
+        drillingCooldown = true;
+        
         Debug.Log(originalPosition);
-        body.velocity = transform.rotation * Vector3.up* drillRange/drillTime;
-        //Debug.Log(velocity);
-        yield return new WaitForSeconds(drillTime);
-        //transform.Translate(transform.rotation * Vector3.up * drillRange);
-        float distance = (originalPosition - transform.localPosition).magnitude;
-        body.velocity = (originalPosition - transform.localPosition).normalized * (distance / drillCooldown);
-        //Debug.Log(velocity);
-        yield return new WaitForSeconds(drillCooldown);
-        body.velocity = Vector3.zero;
-        transform.localPosition = originalPosition;
+        float fireTime = Time.time;
+        while(Time.time<(fireTime+ drillTime))
+        {
+            drillHead.localPosition += Vector3.up * drillRange / drillTime;
+            yield return null;
+        }
         drilling = false;
+
+
+        fireTime = Time.time;
+        while (Time.time < (fireTime + drillCooldown))
+        {
+            drillHead.localPosition -= Vector3.up * drillRange / drillCooldown;
+            yield return null;
+        }
+        //transform.Translate(transform.rotation * Vector3.up * drillRange);
+        drillHead.localPosition = originalPosition;
+        drillingCooldown = false;
+        
     }
-    void OnCollisionEnter2D(Collision2D coll)
+    void OnTriggerEnter2D(Collider2D coll)
     {
+        Debug.Log("trigger happened");
         if (drilling)
         {
             if (coll.gameObject.tag == "wall")
