@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class homeBase : MonoBehaviour
+public class HomeBase : MonoBehaviour
 {
 
     public bool inUse = false;

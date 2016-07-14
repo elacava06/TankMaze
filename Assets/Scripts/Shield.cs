@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShieldThing : MonoBehaviour {
+public class Shield : MonoBehaviour {
 
     // Use this for initialization
     void Start() {

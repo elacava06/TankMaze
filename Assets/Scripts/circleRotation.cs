@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class circleRotation : MonoBehaviour {
+public class CircleRotation : MonoBehaviour {
 
     public bool leftRight;
     public float rotationSpeed;

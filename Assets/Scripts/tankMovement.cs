@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class tankMovement : MonoBehaviour {
+public class TankMovement : MonoBehaviour {
     public float turnSpeed;
     public float movementSpeed;
     // Use this for initialization

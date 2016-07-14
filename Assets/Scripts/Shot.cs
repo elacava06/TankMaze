@@ -22,7 +22,7 @@ public class Shot : MonoBehaviour {
     {
         if (other.tag == "tankBody")
         {
-            if (other.GetComponentInParent<tankInfo>().teamNumber != teamNumber)
+            if (other.GetComponentInParent<TankInfo>().teamNumber != teamNumber)
             {
                 Destroy(other.gameObject);
                 Destroy(this.gameObject);

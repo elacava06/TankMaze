@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class collectibleSpawn : MonoBehaviour
+public class CollectibleSpawn : MonoBehaviour
 {
 
     public GameObject collectible;
