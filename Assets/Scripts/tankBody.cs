@@ -4,57 +4,18 @@ using System.Collections;
 public class tankBody : MonoBehaviour
 {
     //public variables
-    public float turnSpeed;
-    public float movementSpeed;
-    public int teamNumber;
-
+    
     //private variables
     private Rigidbody2D body;
     private GameObject collectibleHolding;
     private bool isHoldingCollectible = false;
+    private tankInfo myTankInfo;
 
 
     // Called once at start:
     void Start()
     {
-        body = gameObject.GetComponent<Rigidbody2D>();
-        if (teamNumber == 1)
-        {
-            GetComponent<SpriteRenderer>().color = Color.red;
-        }
-        else if (teamNumber == 2)
-        {
-            GetComponent<SpriteRenderer>().color = Color.blue;
-        }
-    }
-
-    // Called once per frame:
-    void Update()
-    {
-        updateAngle();
-        updateMovement();
-    }
-
-
-
-    // Helper functions:
-
-
-    // Changes heading angle based on L/R arrow key press/hold
-    void updateAngle()
-    {
-        float angleChange = -1 * Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.forward, angleChange * turnSpeed);
-    }
-
-
-    // Changes velocity based on U/D arrow key press/hold
-    void updateMovement()
-    {
-        float movementChange = Input.GetAxis("Vertical");
-        body.velocity = new Vector3(0, 0, 0);
-        Vector3 heading = transform.rotation * Vector3.up;
-        body.velocity = heading * movementSpeed * movementChange;
+        myTankInfo = GetComponentInParent<tankInfo>();
     }
 
 
@@ -68,7 +29,7 @@ public class tankBody : MonoBehaviour
                 collectibleHolding = trigger.gameObject;
 
                 // Checks to make sure the collectible is not already claimed by your team
-                if (collectibleHolding.GetComponent<collectible>().claimedTeamNumber != teamNumber)
+                if (collectibleHolding.GetComponent<collectible>().claimedTeamNumber != myTankInfo.teamNumber)
                 {
                     //Puts collectible on the hood and unclaims collectible
                     Debug.Log("parent: " + collectibleHolding.transform.parent);
@@ -92,7 +53,7 @@ public class tankBody : MonoBehaviour
             homeBase thisBase = trigger.gameObject.GetComponent<homeBase>();
 
             // Checks to make sure the base belongs to your team and isn't already claimed
-            if (thisBase.inUse == false && teamNumber == thisBase.teamNumber)
+            if (thisBase.inUse == false && myTankInfo.teamNumber == thisBase.teamNumber)
             {
                 // Checks to make sure you are holding a collectible
                 if (isHoldingCollectible == true)
@@ -103,7 +64,7 @@ public class tankBody : MonoBehaviour
                     collectibleHolding.transform.SetParent(thisBase.transform);
                     collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = -1;
                     collectibleHolding.transform.localPosition = new Vector3(0, 0, 0);
-                    collectibleHolding.GetComponent<collectible>().claimedTeamNumber = teamNumber;
+                    collectibleHolding.GetComponent<collectible>().claimedTeamNumber = myTankInfo.teamNumber;
                     isHoldingCollectible = false;
                 }
             }

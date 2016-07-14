@@ -12,11 +12,12 @@ public class Turret : MonoBehaviour {
     public float shotSpeed;
     public float fireRate;
     private float nextFire;
+    private tankInfo myTankInfo;
 
 	// Use this for initialization
 	void Start () {
-
-	}
+        myTankInfo = GetComponentInParent<tankInfo>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -46,7 +47,7 @@ public class Turret : MonoBehaviour {
         {
             nextFire = Time.time + fireRate;
             GameObject shotClone = Instantiate(shot, this.transform.Find("shotSpawn").transform.position, this.transform.rotation) as GameObject;
-            shotClone.GetComponent<Shot>().teamNumber = this.GetComponentInParent<tankBody>().teamNumber;
+            shotClone.GetComponent<Shot>().teamNumber = myTankInfo.teamNumber;
             float xDirection = -Mathf.Sin(this.transform.eulerAngles.z * Mathf.Deg2Rad);
             float yDirection = Mathf.Cos(this.transform.eulerAngles.z * Mathf.Deg2Rad);
             shotBody = shotClone.GetComponent<Rigidbody2D>();

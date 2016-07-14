@@ -10,8 +10,8 @@ public class Shot : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -22,7 +22,7 @@ public class Shot : MonoBehaviour {
     {
         if (other.tag == "tankBody")
         {
-            if (other.GetComponent<tankBody>().teamNumber != teamNumber)
+            if (other.GetComponentInParent<tankInfo>().teamNumber != teamNumber)
             {
                 Destroy(other.gameObject);
                 Destroy(this.gameObject);
