@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CircleRotation : MonoBehaviour {
 
+    public bool localRotation;
     public bool leftRight;
     public float rotationSpeed;
     public bool drawCircles;
@@ -15,6 +16,7 @@ public class CircleRotation : MonoBehaviour {
     public direction currentDirection = direction.neither;  //why can't i make this public?
     public float inputSpeed;
 
+    private float zrotation =0;
 
 	// Use this for initialization
 	void Start () {
@@ -23,19 +25,36 @@ public class CircleRotation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (!localRotation)
+        {
+            transform.localRotation = Quaternion.identity;
+        }
         if (leftRight)
         {
-            incrementRotation();
+            incrementRotationLocal();
         }
         else if (drawCircles)
         {
             doCircleRotation();
         }
 	}
-    void incrementRotation()
+
+    void rotateObject(float byHowMuch)
+    {
+        if (localRotation)
+        {
+            transform.Rotate(Vector3.forward, byHowMuch);
+        }
+
+        else {
+            zrotation += byHowMuch;
+            transform.rotation = Quaternion.Euler(0, 0, zrotation);
+        }
+    }
+    void incrementRotationLocal()
     {
         float change = Input.GetAxis(horizontalAxisName);
-        transform.Rotate(Vector3.forward, -change * rotationSpeed);
+        rotateObject(-change * rotationSpeed);
     }
     void doCircleRotation()
     {
@@ -43,11 +62,11 @@ public class CircleRotation : MonoBehaviour {
         inputSpeed = (input2 - input1).magnitude;
         if (currentDirection == direction.clockwise)
         {
-            transform.Rotate(Vector3.forward, -inputSpeed * circleRotationSpeed * Time.deltaTime);
+            rotateObject(-inputSpeed * circleRotationSpeed * Time.deltaTime);
         }
         else if(currentDirection == direction.counterClockwise)
         {
-            transform.Rotate(Vector3.forward, inputSpeed * circleRotationSpeed * Time.deltaTime);
+            rotateObject(inputSpeed * circleRotationSpeed * Time.deltaTime);
         }
 
     }

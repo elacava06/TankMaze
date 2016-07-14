@@ -21,18 +21,12 @@ public class DestroyBlocks : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        incrementRotation();
+        
         if(Input.GetAxis("drill") !=0 && !drillingCooldown)
         {
             StartCoroutine(drill());
         }
 	}
-
-    void incrementRotation()
-    {
-        float change = Input.GetAxis("drillMovement");
-        transform.Rotate(Vector3.forward, -change * rotationSpeed * Time.deltaTime);
-    }
 
     IEnumerator drill()
     {
