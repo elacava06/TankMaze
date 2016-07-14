@@ -44,6 +44,7 @@ public class TankBody : MonoBehaviour
                     collectibleHolding.transform.SetParent(transform);
                     collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = 1;
                     collectibleHolding.transform.localPosition = new Vector3(0, 0.26f, 0);
+                    collectibleHolding.transform.localRotation = Quaternion.identity;
                     collectibleHolding.GetComponent<Collectible>().claimedTeamNumber = -1;
                 }
             }
@@ -66,6 +67,7 @@ public class TankBody : MonoBehaviour
                     collectibleHolding.transform.SetParent(thisBase.transform);
                     collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = -1;
                     collectibleHolding.transform.localPosition = new Vector3(0, 0, 0);
+                    collectibleHolding.transform.localRotation = Quaternion.identity;
                     collectibleHolding.GetComponent<Collectible>().claimedTeamNumber = myTankInfo.teamNumber;
                     isHoldingCollectible = false;
                 }
