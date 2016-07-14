@@ -13,7 +13,7 @@ GameObject:
   - 61: {fileID: 6136564}
   - 114: {fileID: 11448658}
   m_Layer: 0
-  m_Name: shot
+  m_Name: Shot
   m_TagString: shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

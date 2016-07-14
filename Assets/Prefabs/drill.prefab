@@ -9,10 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 457502}
   - 114: {fileID: 11477140}
-  - 50: {fileID: 5095094}
+  - 114: {fileID: 11495936}
   m_Layer: 0
   m_Name: drill
-  m_TagString: Untagged
+  m_TagString: drill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ GameObject:
   - 61: {fileID: 6142924}
   m_Layer: 0
   m_Name: image
-  m_TagString: Untagged
+  m_TagString: drill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,23 +61,6 @@ Transform:
   - {fileID: 453236}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5095094
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111182}
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 3
 --- !u!61 &6142924
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -107,7 +90,28 @@ MonoBehaviour:
   drillRange: 0.65
   drillTime: 0.1
   drillCooldown: 0.5
+  drilling: 0
   originalPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &11495936
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9746751f6d4255a46a248735fa604e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localRotation: 1
+  leftRight: 1
+  rotationSpeed: 1
+  drawCircles: 0
+  circleRotationSpeed: 0
+  verticalAxisName: 
+  horizontalAxisName: drillMovement
+  currentDirection: 2
+  inputSpeed: 0
 --- !u!212 &21297608
 SpriteRenderer:
   m_ObjectHideFlags: 1

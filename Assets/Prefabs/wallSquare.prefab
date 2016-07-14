@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21295992}
   - 50: {fileID: 5092314}
   - 61: {fileID: 6178394}
+  - 114: {fileID: 11448224}
   m_Layer: 0
   m_Name: wallSquare
   m_TagString: wall
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.94, y: -23.24, z: 0}
+  m_LocalPosition: {x: 3.64, y: 2.9, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -47,7 +48,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &6178394
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -62,6 +63,17 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
+--- !u!114 &11448224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8724eee3ec7a227428d5ab0109b31743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21295992
 SpriteRenderer:
   m_ObjectHideFlags: 1

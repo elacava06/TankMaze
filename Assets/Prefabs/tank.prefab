@@ -12,9 +12,11 @@ GameObject:
   - 114: {fileID: 11456436}
   - 114: {fileID: 11466006}
   - 61: {fileID: 6166352}
+  - 114: {fileID: 11463378}
+  - 50: {fileID: 5059144}
   m_Layer: 0
   m_Name: tank
-  m_TagString: Untagged
+  m_TagString: tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +34,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5059144
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133184}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &6166352
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -43,9 +62,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 2.9090815}
+  m_Offset: {x: 0, y: 0.20648682}
   serializedVersion: 2
-  m_Size: {x: 4.8500066, y: 0.3655119}
+  m_Size: {x: 4.8500066, y: 5.684909}
 --- !u!114 &11456436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -58,6 +77,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamNumber: 0
+--- !u!114 &11463378
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98060f7444707b4198f99b1a8ebfbe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 2
+  movementSpeed: 3
 --- !u!114 &11466006
 MonoBehaviour:
   m_ObjectHideFlags: 1

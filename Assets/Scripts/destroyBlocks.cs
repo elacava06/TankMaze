@@ -8,7 +8,7 @@ public class DestroyBlocks : MonoBehaviour {
     public float drillTime;
     public float drillCooldown;
     private bool drillingCooldown=false;
-    private bool drilling=false;
+    public bool drilling=false;
     // Use this for initialization
     private Transform drillHead;
     public Vector3 originalPosition;
@@ -55,15 +55,5 @@ public class DestroyBlocks : MonoBehaviour {
         drillingCooldown = false;
         
     }
-    void OnTriggerEnter2D(Collider2D coll)
-    {
-        Debug.Log("trigger happened");
-        if (drilling)
-        {
-            if (coll.gameObject.tag == "wall")
-            {
-                Destroy(coll.gameObject);
-            }
-        }
-    }
+    
 }

@@ -9,6 +9,9 @@ TagManager:
   - homeBase
   - tankBody
   - shot
+  - drill
+  - tank
+  - sheild
   layers:
   - Default
   - TransparentFX
