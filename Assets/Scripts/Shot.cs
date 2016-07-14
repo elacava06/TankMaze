@@ -6,6 +6,7 @@ using System.Collections;
  */
 public class Shot : MonoBehaviour {
 
+    public int SHOT_DAMAGE;
     public int teamNumber;
 
 	// Use this for initialization
@@ -21,15 +22,25 @@ public class Shot : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "tankBody")
-        {
+        {   
             if (other.GetComponentInParent<TankInfo>().teamNumber != teamNumber)
             {
-                Destroy(other.gameObject);
+                //Destroy(other.transform.parent.gameObject);
+                damageTank(other);
                 Destroy(this.gameObject);
             }
         } else
         {
             Destroy(this.gameObject);
         }
+    }
+
+    /*
+     * Damages the tank that the shot hits
+     */
+    void damageTank(Collider2D other)
+    {
+        other.GetComponent<TankBody>().loseHealth(SHOT_DAMAGE);
+        other.GetComponentInParent<TankInfo>().loseHealth(SHOT_DAMAGE);
     }
 }
