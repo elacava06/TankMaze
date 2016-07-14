@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 413822}
   - 212: {fileID: 21202466}
-  - 114: {fileID: 11413468}
   - 114: {fileID: 11456436}
   - 114: {fileID: 11466006}
+  - 61: {fileID: 6166352}
   m_Layer: 0
   m_Name: tank
   m_TagString: Untagged
@@ -32,19 +32,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11413468
-MonoBehaviour:
+--- !u!61 &6166352
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133184}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e98060f7444707b4198f99b1a8ebfbe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnSpeed: 2
-  movementSpeed: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 2.9090815}
+  serializedVersion: 2
+  m_Size: {x: 4.8500066, y: 0.3655119}
 --- !u!114 &11456436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,7 +101,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: fc2423c1170fe6941aeaece3a13d8e01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000
 Prefab:
