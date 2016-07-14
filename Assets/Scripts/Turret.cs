@@ -12,11 +12,11 @@ public class Turret : MonoBehaviour {
     public float shotSpeed;
     public float fireRate;
     private float nextFire;
-    private tankInfo myTankInfo;
+    private TankInfo myTankInfo;
 
 	// Use this for initialization
 	void Start () {
-        myTankInfo = GetComponentInParent<tankInfo>();
+        myTankInfo = GetComponentInParent<TankInfo>();
     }
 	
 	// Update is called once per frame

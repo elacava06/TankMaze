@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class destroyBlocks : MonoBehaviour {
+public class DestroyBlocks : MonoBehaviour {
 
     public float rotationSpeed;
     public float drillRange;

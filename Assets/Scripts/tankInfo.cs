@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class tankInfo : MonoBehaviour {
+public class TankInfo : MonoBehaviour {
     public int teamNumber;
 	// Use this for initialization
 	void Start () {

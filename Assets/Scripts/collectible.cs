@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class collectible : MonoBehaviour {
+public class Collectible : MonoBehaviour {
 
     public int claimedTeamNumber;
 
