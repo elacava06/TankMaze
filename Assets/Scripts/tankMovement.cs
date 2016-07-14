@@ -24,7 +24,7 @@ public class TankMovement : MonoBehaviour {
     // Changes heading angle based on L/R arrow key press/hold
     void updateAngle()
     {
-        float angleChange = -1 * Input.GetAxis("Horizontal");
+        float angleChange = -1 * Input.GetAxis("tankHorizontal");
         transform.Rotate(Vector3.forward, angleChange * turnSpeed);
     }
 
@@ -32,7 +32,7 @@ public class TankMovement : MonoBehaviour {
     // Changes velocity based on U/D arrow key press/hold
     void updateMovement()
     {
-        float movementChange = Input.GetAxis("Vertical");
+        float movementChange = Input.GetAxis("tankVertical");
         Vector3 heading = transform.rotation * Vector3.up;
         transform.Translate(Vector3.up * movementSpeed * movementChange *Time.deltaTime);
     }

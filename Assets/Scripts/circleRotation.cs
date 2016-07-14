@@ -8,6 +8,7 @@ public class CircleRotation : MonoBehaviour {
     public float rotationSpeed;
     public bool drawCircles;
     public float circleRotationSpeed;
+    public string singleAxisName;
     public string verticalAxisName;
     public string horizontalAxisName;
     private Vector2 input1;
@@ -25,6 +26,8 @@ public class CircleRotation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //Debug.Log("horizontal"+Input.GetAxis(horizontalAxisName));
+        //Debug.Log("vertical"+Input.GetAxis(verticalAxisName));
         if (!localRotation)
         {
             transform.localRotation = Quaternion.identity;
@@ -33,7 +36,7 @@ public class CircleRotation : MonoBehaviour {
         {
             incrementRotationLocal();
         }
-        else if (drawCircles)
+        if (drawCircles)
         {
             doCircleRotation();
         }
@@ -53,7 +56,7 @@ public class CircleRotation : MonoBehaviour {
     }
     void incrementRotationLocal()
     {
-        float change = Input.GetAxis(horizontalAxisName);
+        float change = Input.GetAxis(singleAxisName);
         rotateObject(-change * rotationSpeed);
     }
     void doCircleRotation()
