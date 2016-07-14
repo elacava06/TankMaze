@@ -28,4 +28,5 @@ public class playerSpawn : MonoBehaviour {
         int teamNumber = this.GetComponentInParent<homeBase>().teamNumber;
         tankBodyClone.GetComponent<tankInfo>().teamNumber = teamNumber;
     }
+
 }
