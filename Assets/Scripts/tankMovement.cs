@@ -34,6 +34,6 @@ public class TankMovement : MonoBehaviour {
     {
         float movementChange = Input.GetAxis("Vertical");
         Vector3 heading = transform.rotation * Vector3.up;
-        transform.position += heading * movementSpeed * movementChange*Time.deltaTime;
+        transform.Translate(Vector3.up * movementSpeed * movementChange *Time.deltaTime);
     }
 }

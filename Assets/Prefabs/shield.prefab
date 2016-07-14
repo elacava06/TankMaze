@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 418976}
   - 114: {fileID: 11485796}
   m_Layer: 0
-  m_Name: 64_shield
+  m_Name: shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed766080dd61b5140a2caf268ac11733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxRotationSpeed: 2
 --- !u!212 &21258194
 SpriteRenderer:
   m_ObjectHideFlags: 1
