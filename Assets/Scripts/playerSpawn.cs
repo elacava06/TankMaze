@@ -6,7 +6,7 @@ using System.Collections;
  */
 public class playerSpawn : MonoBehaviour {
 
-    public GameObject tankBody;
+    public GameObject tank;
 
 	// Use this for initialization
 	void Start () {
@@ -24,8 +24,8 @@ public class playerSpawn : MonoBehaviour {
      */
     void getTeamNumber()
     {
-        GameObject tankBodyClone = Instantiate(tankBody, this.transform.position, new Quaternion(0, 0, 0, 0)) as GameObject;
+        GameObject tankBodyClone = Instantiate(tank, this.transform.position, new Quaternion(0, 0, 0, 0)) as GameObject;
         int teamNumber = this.GetComponentInParent<homeBase>().teamNumber;
-        tankBodyClone.GetComponent<tankBody>().teamNumber = teamNumber;
+        tankBodyClone.GetComponent<tankInfo>().teamNumber = teamNumber;
     }
 }

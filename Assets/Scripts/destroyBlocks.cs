@@ -31,7 +31,7 @@ public class destroyBlocks : MonoBehaviour {
     void incrementRotation()
     {
         float change = Input.GetAxis("drillMovement");
-        transform.Rotate(Vector3.forward, -change * rotationSpeed);
+        transform.Rotate(Vector3.forward, -change * rotationSpeed * Time.deltaTime);
     }
 
     IEnumerator drill()
@@ -44,7 +44,7 @@ public class destroyBlocks : MonoBehaviour {
         float fireTime = Time.time;
         while(Time.time<(fireTime+ drillTime))
         {
-            drillHead.localPosition += Vector3.up * drillRange / drillTime;
+            drillHead.localPosition += Vector3.up * drillRange / drillTime * Time.deltaTime;
             yield return null;
         }
         drilling = false;
@@ -53,7 +53,7 @@ public class destroyBlocks : MonoBehaviour {
         fireTime = Time.time;
         while (Time.time < (fireTime + drillCooldown))
         {
-            drillHead.localPosition -= Vector3.up * drillRange / drillCooldown;
+            drillHead.localPosition -= Vector3.up * drillRange / drillCooldown * Time.deltaTime;
             yield return null;
         }
         //transform.Translate(transform.rotation * Vector3.up * drillRange);
