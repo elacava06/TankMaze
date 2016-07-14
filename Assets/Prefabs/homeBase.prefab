@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2165c9ab40236b0449a05db0d23dd0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tank: {fileID: 133184, guid: 0df022acb488716469cca3123a6bcc5f, type: 2}
+  tank: {fileID: 133184, guid: 0f4d49b054f22344ca82eaf46e82beef, type: 2}
 --- !u!114 &11483926
 MonoBehaviour:
   m_ObjectHideFlags: 1
