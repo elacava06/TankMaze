@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * Creates the tank components
+ */
 public class TankInitiate : MonoBehaviour {
 
     public GameObject body;

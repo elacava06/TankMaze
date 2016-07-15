@@ -10,7 +10,7 @@ public class PlayerSpawn : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        getTeamNumber();
+        spawnTank();
 	}
 	
 	// Update is called once per frame
@@ -22,11 +22,16 @@ public class PlayerSpawn : MonoBehaviour {
      * Assigns the spawning tank a team number
      * The team number will be the same team number as the base
      */
-    void getTeamNumber()
+    public void spawnTank()
     {
         GameObject tankClone = Instantiate(tank, this.transform.position, new Quaternion(0, 0, 0, 0)) as GameObject;
         int teamNumber = this.GetComponentInParent<HomeBase>().teamNumber;
         tankClone.GetComponent<TankInfo>().teamNumber = teamNumber;
+    }
+
+    public void respawn()
+    {
+
     }
 
 }

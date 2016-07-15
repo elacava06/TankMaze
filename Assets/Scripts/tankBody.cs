@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * Represents the actual body of the tank
+ */
 public class TankBody : MonoBehaviour
 {
     //public variables

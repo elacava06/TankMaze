@@ -24,6 +24,9 @@ public class HealthBar : MonoBehaviour {
         this.transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y - distance);
 	}
 
+    /*
+     * Decreases the fill on the health bar slider by amount
+     */
     public void loseHealth(int amount)
     {
         this.GetComponentInChildren<Slider>().value -= amount;
