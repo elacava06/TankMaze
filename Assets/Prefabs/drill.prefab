@@ -27,6 +27,8 @@ GameObject:
   - 4: {fileID: 453236}
   - 212: {fileID: 21297608}
   - 61: {fileID: 6142924}
+  - 61: {fileID: 6142220}
+  - 61: {fileID: 6160496}
   m_Layer: 0
   m_Name: image
   m_TagString: drill
@@ -61,6 +63,20 @@ Transform:
   - {fileID: 453236}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6142220
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119196}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.18356705, y: -0.12942147}
+  serializedVersion: 2
+  m_Size: {x: 0.19260865, y: 0.4832881}
 --- !u!61 &6142924
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -72,9 +88,23 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.0036358833, y: 0.25277388}
+  m_Offset: {x: -0.005088806, y: -0.00022900105}
   serializedVersion: 2
-  m_Size: {x: 0.28961068, y: 0.36912203}
+  m_Size: {x: 0.18492031, y: 0.7704363}
+--- !u!61 &6160496
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119196}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.20073509, y: -0.13602495}
+  serializedVersion: 2
+  m_Size: {x: 0.20581597, y: 0.48593038}
 --- !u!114 &11477140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,10 +136,11 @@ MonoBehaviour:
   localRotation: 1
   leftRight: 1
   rotationSpeed: 1
-  drawCircles: 0
-  circleRotationSpeed: 0
-  verticalAxisName: 
-  horizontalAxisName: drillMovement
+  drawCircles: 1
+  circleRotationSpeed: 200
+  singleAxisName: drillMovement
+  verticalAxisName: drillVertical
+  horizontalAxisName: drillHorizontal
   currentDirection: 2
   inputSpeed: 0
 --- !u!212 &21297608
