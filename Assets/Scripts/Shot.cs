@@ -8,6 +8,7 @@ public class Shot : MonoBehaviour {
 
     public int SHOT_DAMAGE;
     public int teamNumber;
+    public bool breaksWalls;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +30,7 @@ public class Shot : MonoBehaviour {
                 Destroy(this.gameObject);
             }
         }
-        else if (other.tag == "wall")
+        else if (other.tag == "wall" && breaksWalls)
         {
             Destroy(other.gameObject);
             Destroy(this.gameObject);

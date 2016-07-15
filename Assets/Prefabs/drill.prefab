@@ -26,9 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453236}
   - 212: {fileID: 21297608}
-  - 61: {fileID: 6142924}
-  - 61: {fileID: 6142220}
-  - 61: {fileID: 6160496}
+  - 68: {fileID: 6853406}
   m_Layer: 0
   m_Name: image
   m_TagString: drill
@@ -56,15 +54,15 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.94, y: 0.47, z: 0}
+  m_LocalPosition: {x: 4.631346, y: -1.2918129, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 453236}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &6142220
-BoxCollider2D:
+--- !u!68 &6853406
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -74,37 +72,17 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.18356705, y: -0.12942147}
-  serializedVersion: 2
-  m_Size: {x: 0.19260865, y: 0.4832881}
---- !u!61 &6142924
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 119196}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: -0.005088806, y: -0.00022900105}
-  serializedVersion: 2
-  m_Size: {x: 0.18492031, y: 0.7704363}
---- !u!61 &6160496
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 119196}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: -0.20073509, y: -0.13602495}
-  serializedVersion: 2
-  m_Size: {x: 0.20581597, y: 0.48593038}
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -0.2954707, y: -0.4626602}
+  - {x: 0.3523445, y: -0.46374196}
+  - {x: 0.0038986206, y: -0.03507662}
+  - {x: -0.31982422, y: -0.4594741}
+  - {x: -0.32014322, y: -0.24589717}
+  - {x: -0.0018835068, y: 0.41435337}
+  - {x: 0.19282675, y: 0.04764402}
+  - {x: 0.36046124, y: -0.2908734}
+  - {x: 0.3668828, y: -0.45902562}
 --- !u!114 &11477140
 MonoBehaviour:
   m_ObjectHideFlags: 1

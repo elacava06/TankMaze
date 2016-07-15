@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 455722}
   - 212: {fileID: 21258194}
-  - 58: {fileID: 5828028}
+  - 68: {fileID: 6847472}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Untagged
@@ -54,14 +54,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 418976}
   m_RootOrder: 0
---- !u!58 &5828028
-CircleCollider2D:
+--- !u!68 &6847472
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -71,9 +71,19 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.5}
-  serializedVersion: 2
-  m_Radius: 1.2800007
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -1.2499224, y: -0.7673826}
+  - {x: -1.2207453, y: -0.29255295}
+  - {x: -1.0678743, y: 0.101569176}
+  - {x: -0.7616256, y: 0.48228002}
+  - {x: -0.46779445, y: 0.6786926}
+  - {x: 0.01459375, y: 0.797127}
+  - {x: 0.53511965, y: 0.6696441}
+  - {x: 0.867296, y: 0.40725422}
+  - {x: 1.0937597, y: 0.07167387}
+  - {x: 1.2061309, y: -0.28167522}
+  - {x: 1.2657294, y: -0.7564101}
 --- !u!114 &11485796
 MonoBehaviour:
   m_ObjectHideFlags: 1

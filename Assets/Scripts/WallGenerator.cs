@@ -12,7 +12,7 @@ public class WallGenerator : MonoBehaviour {
         {
             for(int y =0; y<height; y++)
             {
-                GameObject wall = Instantiate(wallToGenerate, transform.position + new Vector3(blockwidth * i, blockwidth * y), Quaternion.identity) as GameObject;
+                GameObject wall = Instantiate(wallToGenerate, transform.position + transform.rotation*(new Vector3(blockwidth * i, blockwidth * y)), Quaternion.identity) as GameObject;
                 wall.transform.parent = transform;
             }
         }

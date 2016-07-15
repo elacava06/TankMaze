@@ -76,6 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SHOT_DAMAGE: 1
   teamNumber: 0
+  breaksWalls: 1
 --- !u!212 &21207396
 SpriteRenderer:
   m_ObjectHideFlags: 1
