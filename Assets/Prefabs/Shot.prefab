@@ -1,30 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &193412
+--- !u!1 &149516
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 410542}
-  - 212: {fileID: 21226620}
-  - 50: {fileID: 5072414}
-  - 61: {fileID: 6136564}
-  - 114: {fileID: 11448658}
+  - 4: {fileID: 468524}
+  - 212: {fileID: 21207396}
+  - 50: {fileID: 5023446}
+  - 61: {fileID: 6157198}
+  - 114: {fileID: 11455998}
   m_Layer: 0
-  m_Name: Shot
+  m_Name: shot
   m_TagString: shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &410542
+--- !u!4 &468524
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193412}
+  m_GameObject: {fileID: 149516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.28, y: 0.99, z: 1}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5072414
+--- !u!50 &5023446
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193412}
+  m_GameObject: {fileID: 149516}
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -49,12 +49,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6136564
+--- !u!61 &6157198
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193412}
+  m_GameObject: {fileID: 149516}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -63,25 +63,25 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.06, y: 0.35999998}
---- !u!114 &11448658
+--- !u!114 &11455998
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193412}
+  m_GameObject: {fileID: 149516}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8b683c6a41adee4d8f2f3bbb97a85e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SHOT_DAMAGE: 0
+  SHOT_DAMAGE: 1
   teamNumber: 0
---- !u!212 &21226620
+--- !u!212 &21207396
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193412}
+  m_GameObject: {fileID: 149516}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -115,5 +115,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 193412}
+  m_RootGameObject: {fileID: 149516}
   m_IsPrefabParent: 1

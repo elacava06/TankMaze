@@ -11,7 +11,8 @@ TagManager:
   - shot
   - drill
   - tank
-  - sheild
+  - shield
+  - collectibleSpawn
   layers:
   - Default
   - TransparentFX
