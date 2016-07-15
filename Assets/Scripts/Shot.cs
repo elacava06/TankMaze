@@ -22,14 +22,13 @@ public class Shot : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "tankBody")
-        {   
+        {
             if (other.GetComponentInParent<TankInfo>().teamNumber != teamNumber)
             {
-                //Destroy(other.transform.parent.gameObject);
                 damageTank(other);
                 Destroy(this.gameObject);
             }
-        } else
+        } else if (!(other.tag == "drill" || other.tag == "tank"))
         {
             Destroy(this.gameObject);
         }
@@ -41,6 +40,6 @@ public class Shot : MonoBehaviour {
     void damageTank(Collider2D other)
     {
         other.GetComponent<TankBody>().loseHealth(SHOT_DAMAGE);
-        other.GetComponentInParent<TankInfo>().loseHealth(SHOT_DAMAGE);
+        other.transform.parent.GetComponentInChildren<HealthBar>().loseHealth(SHOT_DAMAGE);
     }
 }

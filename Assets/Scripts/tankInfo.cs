@@ -8,7 +8,6 @@ using System.Collections;
 public class TankInfo : MonoBehaviour {
 
     public int teamNumber;
-    public Slider healthBar;
 
 	// Use this for initialization
 	void Start () {
@@ -26,13 +25,5 @@ public class TankInfo : MonoBehaviour {
 	void Update () {
 	
 	}
-
-    /*
-     * Lowers the value of the health slider by amount
-     */
-    public void loseHealth(int amount)
-    {
-        this.healthBar.value -= amount;
-    }
 
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /*
@@ -11,7 +12,7 @@ public class HealthBar : MonoBehaviour {
     private GameObject parent;
 
 	// Use this for initialization
-	void Awake () {
+	void Start () {
         rotation = this.transform.rotation;
         parent = this.transform.parent.gameObject;
         distance = Vector3.Distance(parent.transform.position, this.transform.position);
@@ -22,4 +23,9 @@ public class HealthBar : MonoBehaviour {
         this.transform.rotation = rotation;
         this.transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y - distance);
 	}
+
+    public void loseHealth(int amount)
+    {
+        this.GetComponentInChildren<Slider>().value -= amount;
+    }
 }

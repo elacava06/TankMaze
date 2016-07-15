@@ -33,7 +33,6 @@ public class TankMovement : MonoBehaviour {
     void updateMovement()
     {
         float movementChange = Input.GetAxis("Vertical");
-        Vector3 heading = transform.rotation * Vector3.up;
         transform.Translate(Vector3.up * movementSpeed * movementChange *Time.deltaTime);
     }
 }
