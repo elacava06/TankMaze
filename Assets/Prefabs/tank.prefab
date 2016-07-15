@@ -102,7 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 143456, guid: eef0eb18bafbaa6438ff4916c5d29fb5, type: 2}
-  turret: {fileID: 163028, guid: a1aa47ee02a4cbc4a939617e99a9a9f7, type: 2}
+  turret: {fileID: 123594, guid: a1aa47ee02a4cbc4a939617e99a9a9f7, type: 2}
+  turretOffset: -0.3
   drill: {fileID: 111182, guid: 38645337534be0442ab23172a24896dd, type: 2}
   shield: {fileID: 195880, guid: 51b70d3231466f34fa11b06d2db95c12, type: 2}
   healthUI: {fileID: 104472, guid: 4ae01a4364de93448ab815b17a7e2abe, type: 2}

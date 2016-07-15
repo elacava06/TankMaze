@@ -8,6 +8,7 @@ public class TankInitiate : MonoBehaviour {
 
     public GameObject body;
     public GameObject turret;
+    public float turretOffset;
     public GameObject drill;
     public GameObject shield;
     public GameObject healthUI;
@@ -17,7 +18,7 @@ public class TankInitiate : MonoBehaviour {
     void Start()
     {
         GameObject myBody = Instantiate(body, transform.position, Quaternion.identity) as GameObject;
-        GameObject myTurret = Instantiate(turret, transform.position, Quaternion.identity) as GameObject;
+        GameObject myTurret = Instantiate(turret, transform.position + transform.rotation*(new Vector3(0, turretOffset)), Quaternion.identity) as GameObject;
         GameObject myDrill = Instantiate(drill, transform.position, Quaternion.identity) as GameObject;
         GameObject myShield = Instantiate(shield, transform.position, Quaternion.identity) as GameObject;
         GameObject myHealthUI = Instantiate(healthUI, new Vector3(transform.position.x, transform.position.y - healthUIDistance), Quaternion.identity) as GameObject;

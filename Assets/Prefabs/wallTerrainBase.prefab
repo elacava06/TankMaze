@@ -80,6 +80,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 410010}
+  - 114: {fileID: 11482016}
   m_Layer: 0
   m_Name: wallTerrainBase
   m_TagString: Untagged
@@ -343,6 +344,18 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
+--- !u!114 &11482016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac18edbf8da196d448af13f0ecc6f486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall: {fileID: 110352, guid: a6373d76e0f90d84cb1282ebaadd431e, type: 2}
 --- !u!212 &21212918
 SpriteRenderer:
   m_ObjectHideFlags: 1

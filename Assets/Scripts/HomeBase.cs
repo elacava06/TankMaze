@@ -13,6 +13,7 @@ public class HomeBase : MonoBehaviour
         if (teamNumber == 1)
         {
             GetComponent<SpriteRenderer>().color = Color.red;
+            
         }
         else if (teamNumber == 2)
         {

@@ -22,11 +22,11 @@ public class Shot : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "tankBody")
+        if (other.tag == "tank")
         {
-            if (other.GetComponentInParent<TankInfo>().teamNumber != teamNumber)
+            if (other.GetComponent<TankInfo>().teamNumber != teamNumber)
             {
-                damageTank(other);
+                damageTank(other.transform);
                 Destroy(this.gameObject);
             }
         }
@@ -35,7 +35,7 @@ public class Shot : MonoBehaviour {
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
-        else if (!(other.tag == "drill" || other.tag == "tank" || other.tag == "collectible"))
+        else if (!(other.tag == "drill" || other.tag == "tankBody" || other.tag == "collectible"))
         {
             Destroy(this.gameObject);
         }
@@ -44,9 +44,9 @@ public class Shot : MonoBehaviour {
     /*
      * Damages the tank that the shot hits
      */
-    void damageTank(Collider2D other)
+    void damageTank(Transform other)
     {
-        other.GetComponent<TankBody>().loseHealth(SHOT_DAMAGE);
-        other.transform.parent.GetComponentInChildren<HealthBar>().loseHealth(SHOT_DAMAGE);
+        other.GetComponentInChildren<TankBody>().loseHealth(SHOT_DAMAGE);
+        other.GetComponentInChildren<HealthBar>().loseHealth(SHOT_DAMAGE);
     }
 }
