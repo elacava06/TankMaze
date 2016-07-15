@@ -13,6 +13,7 @@ TagManager:
   - tank
   - shield
   - collectibleSpawn
+  - unbreakableWall
   layers:
   - Default
   - TransparentFX

@@ -28,7 +28,13 @@ public class Shot : MonoBehaviour {
                 damageTank(other);
                 Destroy(this.gameObject);
             }
-        } else if (!(other.tag == "drill" || other.tag == "tank"))
+        }
+        else if (other.tag == "wall")
+        {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
+        else if (!(other.tag == "drill" || other.tag == "tank" || other.tag == "collectible"))
         {
             Destroy(this.gameObject);
         }
