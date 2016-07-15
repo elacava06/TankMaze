@@ -24,9 +24,9 @@ public class PlayerSpawn : MonoBehaviour {
      */
     void getTeamNumber()
     {
-        GameObject tankBodyClone = Instantiate(tank, this.transform.position, new Quaternion(0, 0, 0, 0)) as GameObject;
+        GameObject tankClone = Instantiate(tank, this.transform.position, new Quaternion(0, 0, 0, 0)) as GameObject;
         int teamNumber = this.GetComponentInParent<HomeBase>().teamNumber;
-        tankBodyClone.GetComponent<TankInfo>().teamNumber = teamNumber;
+        tankClone.GetComponent<TankInfo>().teamNumber = teamNumber;
     }
 
 }

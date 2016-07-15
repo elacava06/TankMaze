@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
+/*
+ * Represents a tank
+ */
 public class TankInfo : MonoBehaviour {
+
     public int teamNumber;
+
 	// Use this for initialization
 	void Start () {
         if (teamNumber == 1)
@@ -19,4 +25,5 @@ public class TankInfo : MonoBehaviour {
 	void Update () {
 	
 	}
+
 }

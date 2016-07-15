@@ -33,7 +33,7 @@ public class Turret : MonoBehaviour {
     public void turnTurret()
     {
         Vector3 direction = new Vector3(Input.GetAxis("turret"), 0);
-        this.transform.Rotate(Vector3.forward, direction.x * turnSpeed);
+        this.transform.Rotate(Vector3.forward, -direction.x * turnSpeed);
     }
 
     /*

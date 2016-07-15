@@ -4,17 +4,19 @@ using System.Collections;
 public class TankBody : MonoBehaviour
 {
     //public variables
+    public int MAX_HEALTH;
     
     //private variables
     private Rigidbody2D body;
     private GameObject collectibleHolding;
     private bool isHoldingCollectible = false;
     private TankInfo myTankInfo;
-
+    private int currentHealth;
 
     // Called once at start:
     void Start()
     {
+        currentHealth = MAX_HEALTH;
         myTankInfo = GetComponentInParent<TankInfo>();
     }
 
@@ -76,6 +78,19 @@ public class TankBody : MonoBehaviour
                     isHoldingCollectible = false;
                 }
             }
+        }
+    }
+
+    /*
+     * Lowers the players health by amount
+     * Destroys the tank if health reaches 0
+     */
+    public void loseHealth(int amount)
+    {
+        currentHealth -= amount;
+        if (currentHealth == 0)
+        {
+            Destroy(this.transform.parent.gameObject);
         }
     }
 }
