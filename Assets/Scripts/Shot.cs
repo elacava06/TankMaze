@@ -35,7 +35,7 @@ public class Shot : MonoBehaviour {
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
-        else if (!(other.tag == "drill" || other.tag == "tankBody" || other.tag == "collectible"))
+        else if (!(other.tag == "drill" || other.tag == "tankBody" || other.tag == "collectible" || other.tag == "placer"))
         {
             Destroy(this.gameObject);
         }

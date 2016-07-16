@@ -16,13 +16,13 @@ public class TankInfo : MonoBehaviour {
         {
             GetComponent<SpriteRenderer>().color = Color.red;
             //transform.GetComponentInChildren<SpriteRenderer>().color = Color.red;
-            transform.GetChild(1).GetChild(1).GetComponent<SpriteRenderer>().color = Color.blue;
+            //transform.GetChild(1).GetChild(1).GetComponent<SpriteRenderer>().color = Color.blue;
         }
         else if (teamNumber == 2)
         {
             GetComponent<SpriteRenderer>().color = Color.blue;
             //transform.Find("turret(Clone)").Find("turretImage").gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
-            transform.GetChild(1).GetChild(1).GetComponent<SpriteRenderer>().color = Color.blue;
+            //transform.GetChild(1).GetChild(1).GetComponent<SpriteRenderer>().color = Color.blue;
         }
     }
 	

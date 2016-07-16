@@ -6,7 +6,6 @@ using System.Collections;
  */
 public class Turret : MonoBehaviour {
 
-    public float turnSpeed;
     public GameObject shot;
     private Rigidbody2D shotBody;
     public float shotSpeed;
@@ -21,20 +20,8 @@ public class Turret : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        turnTurret();
         shoot();
 	}
-
-    /*
-     * Turns the turret
-     * The turret will turn counterclockwise when a is held
-     * The turret will turn clockwise when d is held
-     */
-    public void turnTurret()
-    {
-        Vector3 direction = new Vector3(Input.GetAxis("turret"), 0);
-        this.transform.Rotate(Vector3.forward, -direction.x * turnSpeed);
-    }
 
     /*
      * Shoots a projectile from the turret
