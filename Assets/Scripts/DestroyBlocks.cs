@@ -8,12 +8,15 @@ public class DestroyBlocks : MonoBehaviour {
     public float drillCooldown;
     private bool drillingCooldown=false;
     public bool drilling=false;
+    private bool alreadyHit = false;
     // Use this for initialization
     private Transform drillHead;
     public Vector3 originalPosition;
-
-    void Start () {
-        
+    public int drillDamage;
+    public int teamNumber;
+    void Start()
+    {
+        teamNumber = GetComponentInParent<TankInfo>().teamNumber;        
         drillHead = transform.GetChild(0);
         originalPosition = drillHead.localPosition;
     }
@@ -41,6 +44,7 @@ public class DestroyBlocks : MonoBehaviour {
             yield return null;
         }
         drilling = false;
+        alreadyHit = false;
 
 
         fireTime = Time.time;
@@ -54,7 +58,31 @@ public class DestroyBlocks : MonoBehaviour {
         drillingCooldown = false;
         
     }
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (drilling && !alreadyHit)
+        {
+            if (other.tag == "tank")
+            {
+                if (other.GetComponent<TankInfo>().teamNumber != teamNumber)
+                {
+                    alreadyHit = true;
+                    damageTank(other.transform);
+                }
+            }
+        }
+        if (other.tag == "drill")
+        {
+            Debug.Log("drills can sense touching!!!");
+        }
+    }
 
-    
-    
+    void damageTank(Transform other)
+    {
+        other.GetComponentInChildren<TankBody>().loseHealth(drillDamage);
+        other.GetComponentInChildren<HealthBar>().loseHealth(drillDamage);
+    }
+
+
+
 }

@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 437698}
   - 212: {fileID: 21219862}
-  - 50: {fileID: 5099622}
   - 61: {fileID: 6106420}
   - 114: {fileID: 11433946}
+  - 50: {fileID: 5098722}
   m_Layer: 0
   m_Name: unbreakableWall
   m_TagString: unbreakableWall
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5099622
+--- !u!50 &5098722
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1

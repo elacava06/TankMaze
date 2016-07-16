@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11477140}
   - 114: {fileID: 11495936}
   - 114: {fileID: 11400964}
+  - 50: {fileID: 5046466}
   m_Layer: 0
   m_Name: drill
   m_TagString: drill
@@ -62,6 +63,23 @@ Transform:
   - {fileID: 453236}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5046466
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111182}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!68 &6853406
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -90,7 +108,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111182}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32f566ceac9c4564fa425db16788d160, type: 3}
   m_Name: 
@@ -106,12 +124,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f247c268e7c724ea195146a7802dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 100
   drillRange: 0.65
   drillTime: 0.1
   drillCooldown: 0.5
   drilling: 0
   originalPosition: {x: 0, y: 0, z: 0}
+  drillDamage: 3
+  teamNumber: 0
 --- !u!114 &11495936
 MonoBehaviour:
   m_ObjectHideFlags: 1

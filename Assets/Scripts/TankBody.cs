@@ -91,7 +91,7 @@ public class TankBody : MonoBehaviour
     public void loseHealth(int amount)
     {
         currentHealth -= amount;
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             if (isHoldingCollectible)   //drop the collectible if I am holding one
             {
