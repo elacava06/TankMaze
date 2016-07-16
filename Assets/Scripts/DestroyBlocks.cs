@@ -3,7 +3,6 @@ using System.Collections;
 
 public class DestroyBlocks : MonoBehaviour {
 
-    public float rotationSpeed;
     public float drillRange;
     public float drillTime;
     public float drillCooldown;
@@ -30,11 +29,11 @@ public class DestroyBlocks : MonoBehaviour {
 
     IEnumerator drill()
     {
-        Debug.Log("drill called");
+        //Debug.Log("drill called");
         drilling = true;
         drillingCooldown = true;
         
-        Debug.Log(originalPosition);
+        //Debug.Log(originalPosition);
         float fireTime = Time.time;
         while(Time.time<(fireTime+ drillTime))
         {
@@ -55,5 +54,7 @@ public class DestroyBlocks : MonoBehaviour {
         drillingCooldown = false;
         
     }
+
+    
     
 }

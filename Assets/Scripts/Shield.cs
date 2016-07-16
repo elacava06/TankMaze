@@ -3,6 +3,12 @@ using System.Collections;
 
 public class Shield : MonoBehaviour {
 
+
+
+
+    /// <summary>
+    /// This script is no longer in use.  See Circle Rotation for movement, or Shot for collision handling;
+    /// </summary>
     // Use this for initialization
     void Start() {
 
@@ -14,7 +20,7 @@ public class Shield : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        incrementRotation();
+        //incrementRotation();
     }
 
     private void incrementRotation()

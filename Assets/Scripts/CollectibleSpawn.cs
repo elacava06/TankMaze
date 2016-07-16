@@ -15,7 +15,10 @@ public class CollectibleSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(transform.childCount== 0)
+        {
+            spawnNewCollectible();
+        }
     }
 
     public void spawnNewCollectible()

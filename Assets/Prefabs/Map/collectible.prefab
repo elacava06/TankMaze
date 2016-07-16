@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21206212}
   - 61: {fileID: 6167850}
   - 114: {fileID: 11479562}
+  - 114: {fileID: 11438034}
   m_Layer: 0
   m_Name: collectible
   m_TagString: collectible
@@ -45,6 +46,18 @@ BoxCollider2D:
   m_Offset: {x: 0.012615204, y: 0.00000023841858}
   serializedVersion: 2
   m_Size: {x: 1.1562647, y: 1.1310337}
+--- !u!114 &11438034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8724eee3ec7a227428d5ab0109b31743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unbreakable: 0
 --- !u!114 &11479562
 MonoBehaviour:
   m_ObjectHideFlags: 1

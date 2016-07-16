@@ -93,6 +93,10 @@ public class TankBody : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth == 0)
         {
+            if (isHoldingCollectible)   //drop the collectible if I am holding one
+            {
+                collectibleHolding.transform.SetParent(null);
+            }
             Destroy(this.transform.parent.gameObject);
         }
     }
