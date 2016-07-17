@@ -2,54 +2,59 @@
 using System.Collections;
 
 public class Shield : MonoBehaviour {
-
-
-
-
     /// <summary>
-    /// This script is no longer in use.  See Circle Rotation for movement, or Shot for collision handling;
+    /// This script is no longer in use for movement.  it contains only sheild health
     /// </summary>
+    /// 
+    public int teamNumber;
+    public float maxShieldHealth;
+    public float shieldHealth;
+    public float regenTime;
+    public float damageFromShot;
+    private SpriteRenderer shieldImage;
+
     // Use this for initialization
     void Start() {
-
+        shieldImage = GetComponentInChildren<SpriteRenderer>();
+        shieldHealth = maxShieldHealth;
+        StartCoroutine(regenerate());
+        teamNumber = GetComponentInParent<TankInfo>().teamNumber;
     }
-    
-    private float rotationSpeed = 0;
-    //allows player input of max rotation speed
-    public float maxRotationSpeed;
 
     // Update is called once per frame
     void Update() {
-        //incrementRotation();
+        
     }
 
-    private void incrementRotation()
+    public void takeDamage()
     {
-        //allows shield to rotate via input
-        float change = Input.GetAxis("shield");
-        transform.Rotate(Vector3.forward, -change * rotationSpeed);
-
-        if (System.Math.Abs(rotationSpeed) < maxRotationSpeed)
+        shieldHealth -= damageFromShot;
+        if(shieldHealth < 0)
         {
-            rotationSpeed -= Input.GetAxis("shield");
-            //if (Input.GetKey("v"))
-            //{
-            //    rotationSpeed += 1;
-            //}
-            //if (Input.GetKey("n"))
-            //{
-            //    rotationSpeed -= 1;
-            //}
+            shieldHealth = 0;
         }
+        updateColor();
     }
 
     //destroys bullet when it collides with shield
-    private void onTriggerEnter2D(Collider2D other)
+    
+    private IEnumerator regenerate()
     {
-        if (other.gameObject.tag == "shot")
+        while (true)
         {
-            Destroy(other.gameObject);
+            if (shieldHealth < maxShieldHealth)
+            {
+                shieldHealth++;
+                updateColor();
+            }
+            yield return new WaitForSeconds(regenTime);
         }
+    }
+    void updateColor()
+    {
+        Color tmp = shieldImage.color;
+        tmp.a = shieldHealth / maxShieldHealth;
+        shieldImage.color = tmp;
     }
 
 }

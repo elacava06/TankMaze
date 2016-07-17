@@ -9,6 +9,7 @@ public class Shot : MonoBehaviour {
     public int SHOT_DAMAGE;
     public int teamNumber;
     public bool breaksWalls;
+    public bool destroyedByOwnShield;
 
 	// Use this for initialization
 	void Start () {
@@ -30,12 +31,25 @@ public class Shot : MonoBehaviour {
                 Destroy(this.gameObject);
             }
         }
+        else if(other.tag == "shield")
+        {
+            Shield thisShield = other.gameObject.GetComponentInParent<Shield>();
+            if (thisShield.teamNumber == teamNumber && destroyedByOwnShield)
+            {
+                Destroy(this.gameObject);
+            }
+            else if (thisShield.shieldHealth != 0) {
+                thisShield.takeDamage();
+                Destroy(this.gameObject);
+            }
+            //Debug.Log("i think it workeddd?");
+        }
         else if (other.tag == "wall" && breaksWalls)
         {
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
-        else if (!(other.tag == "drill" || other.tag == "tankBody" || other.tag == "collectible" || other.tag == "placer"))
+        else if (!(other.tag == "drill" || other.tag == "tankBody" || other.tag == "collectible" || other.tag == "placer" ))
         {
             Destroy(this.gameObject);
         }

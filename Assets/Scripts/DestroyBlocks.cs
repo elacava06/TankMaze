@@ -7,12 +7,13 @@ public class DestroyBlocks : MonoBehaviour {
     public float drillTime;
     public float drillCooldown;
     private bool drillingCooldown=false;
-    public bool drilling=false;
+    public bool drilling = false;
     private bool alreadyHit = false;
     // Use this for initialization
     private Transform drillHead;
     public Vector3 originalPosition;
-    public int drillDamage;
+    public float drillDamage;
+    private float damageCounter;
     public int teamNumber;
     void Start()
     {
@@ -35,6 +36,7 @@ public class DestroyBlocks : MonoBehaviour {
         //Debug.Log("drill called");
         drilling = true;
         drillingCooldown = true;
+        damageCounter = 0;
         
         //Debug.Log(originalPosition);
         float fireTime = Time.time;
@@ -79,9 +81,29 @@ public class DestroyBlocks : MonoBehaviour {
 
     void damageTank(Transform other)
     {
-        other.GetComponentInChildren<TankBody>().loseHealth(drillDamage);
-        other.GetComponentInChildren<HealthBar>().loseHealth(drillDamage);
+        
+        int damageToDeal = Mathf.RoundToInt(drillDamage - damageCounter);
+        //should never deal zero damage;
+        if (damageToDeal < 1)
+        {
+            damageToDeal = 1;
+        }
+        Debug.Log(damageToDeal);
+        other.GetComponentInChildren<TankBody>().loseHealth(damageToDeal);
+        other.GetComponentInChildren<HealthBar>().loseHealth(damageToDeal);
     }
+
+    void updateDrillDamage()
+    {
+        damageCounter++;
+    }
+    
+    public bool hasHitTank()
+    {
+        return alreadyHit;
+    }
+
+
 
 
 

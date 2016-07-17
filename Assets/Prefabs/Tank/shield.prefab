@@ -12,7 +12,7 @@ GameObject:
   - 68: {fileID: 6847472}
   m_Layer: 0
   m_Name: New Sprite
-  m_TagString: Untagged
+  m_TagString: shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,9 +26,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 418976}
   - 114: {fileID: 11483156}
+  - 114: {fileID: 11490186}
   m_Layer: 0
   m_Name: shield
-  m_TagString: sheild
+  m_TagString: shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +106,21 @@ MonoBehaviour:
   horizontalAxisName: 
   currentDirection: 2
   inputSpeed: 0
+--- !u!114 &11490186
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed766080dd61b5140a2caf268ac11733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxShieldHealth: 5
+  shieldHealth: 0
+  regenTime: 0.8
+  damageFromShot: 1
 --- !u!212 &21258194
 SpriteRenderer:
   m_ObjectHideFlags: 1

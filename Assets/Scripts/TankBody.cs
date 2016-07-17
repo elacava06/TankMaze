@@ -12,6 +12,7 @@ public class TankBody : MonoBehaviour
     //private variables
     private Rigidbody2D body;
     private GameObject collectibleHolding;
+    private Collectible collectibleInfo;
     private bool isHoldingCollectible = false;
     private TankInfo myTankInfo;
     private int currentHealth;
@@ -49,12 +50,16 @@ public class TankBody : MonoBehaviour
                         }
                     }
                     isHoldingCollectible = true;
+                    
                     collectibleHolding.transform.parent = null;
                     collectibleHolding.transform.SetParent(transform);
                     collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = 1;
                     collectibleHolding.transform.localPosition = new Vector3(0, 0.26f, 0);
                     collectibleHolding.transform.localRotation = Quaternion.identity;
-                    collectibleHolding.GetComponent<Collectible>().claimedTeamNumber = -1;
+                    collectibleInfo = collectibleHolding.GetComponent<Collectible>();
+                    collectibleInfo.claimedTeamNumber = -1;
+                    collectibleHolding.GetComponent<Wall>().markClaimed(true);
+
                 }
             }
         }
@@ -78,7 +83,7 @@ public class TankBody : MonoBehaviour
                     collectibleHolding.transform.localPosition = new Vector3(0, 0, 0);
                     collectibleHolding.transform.localRotation = Quaternion.identity;
                     collectibleHolding.GetComponent<Collectible>().claimedTeamNumber = myTankInfo.teamNumber;
-                    isHoldingCollectible = false;
+                    collectibleHolding.GetComponent<Wall>().markClaimed(false);
                 }
             }
         }
@@ -96,6 +101,7 @@ public class TankBody : MonoBehaviour
             if (isHoldingCollectible)   //drop the collectible if I am holding one
             {
                 collectibleHolding.transform.SetParent(null);
+                collectibleHolding.GetComponent<Wall>().markClaimed(false);
             }
             Destroy(this.transform.parent.gameObject);
         }
