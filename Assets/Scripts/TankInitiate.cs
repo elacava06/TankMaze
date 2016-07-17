@@ -25,14 +25,14 @@ public class TankInitiate : MonoBehaviour {
         myBody.transform.SetParent(transform);
         GameObject myHealthUI = Instantiate(healthUI, new Vector3(transform.position.x, transform.position.y - healthUIDistance), Quaternion.identity) as GameObject;
         myHealthUI.transform.SetParent(transform);
-        if (myClass == characterClass.miner)
+        if (myClass == characterClass.miner || myClass == characterClass.everything)
         {
             GameObject myArm = Instantiate(arm, transform.position + transform.rotation * (new Vector3(0, armOffset)), Quaternion.identity) as GameObject;
             myArm.transform.SetParent(transform);
             GameObject myDrill = Instantiate(drill, transform.position, Quaternion.identity) as GameObject;
             myDrill.transform.SetParent(transform);
         }
-        else if (myClass == characterClass.shooter)
+        if (myClass == characterClass.shooter || myClass == characterClass.everything)
         {
             GameObject myTurret = Instantiate(turret, transform.position + transform.rotation * (new Vector3(0, turretOffset)), Quaternion.identity) as GameObject;
             myTurret.transform.SetParent(transform);

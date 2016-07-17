@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public enum characterClass { miner, shooter };  //declaring outside, so it can be used by entire assembly;
+public enum characterClass { miner, shooter, everything };  //declaring outside, so it can be used by entire assembly;
 
 
 public class PlayerSpawn : MonoBehaviour {
