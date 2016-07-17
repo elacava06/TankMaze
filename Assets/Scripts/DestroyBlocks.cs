@@ -88,7 +88,6 @@ public class DestroyBlocks : MonoBehaviour {
         {
             damageToDeal = 1;
         }
-        Debug.Log(damageToDeal);
         other.GetComponentInChildren<TankBody>().loseHealth(damageToDeal);
         other.GetComponentInChildren<HealthBar>().loseHealth(damageToDeal);
     }
