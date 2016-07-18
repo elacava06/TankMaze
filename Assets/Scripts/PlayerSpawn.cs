@@ -1,13 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/*
+
+public enum characterClass { miner, shooter, everything };  //declaring outside, so it can be used by entire assembly;
+
+
+public class PlayerSpawn : MonoBehaviour {
+ /*
  * Represents the point where a player will spawn
  */
-public class PlayerSpawn : MonoBehaviour {
-
     public GameObject tank;
-
+    
+    public characterClass myClass;
 	// Use this for initialization
 	void Start () {
         spawnTank();
@@ -27,5 +31,6 @@ public class PlayerSpawn : MonoBehaviour {
         GameObject tankClone = Instantiate(tank, this.transform.position, new Quaternion(0, 0, 0, 0)) as GameObject;
         int teamNumber = this.GetComponentInParent<HomeBase>().teamNumber;
         tankClone.GetComponent<TankInfo>().teamNumber = teamNumber;
+        tankClone.GetComponent<TankInitiate>().setClass(myClass); 
     }
 }

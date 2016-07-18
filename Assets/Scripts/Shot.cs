@@ -8,6 +8,8 @@ public class Shot : MonoBehaviour {
 
     public int SHOT_DAMAGE;
     public int teamNumber;
+    public bool breaksWalls;
+    public bool destroyedByOwnShield;
 
 	// Use this for initialization
 	void Start () {
@@ -21,14 +23,33 @@ public class Shot : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "tankBody")
+        if (other.tag == "tank")
         {
-            if (other.GetComponentInParent<TankInfo>().teamNumber != teamNumber)
+            if (other.GetComponent<TankInfo>().teamNumber != teamNumber)
             {
-                damageTank(other);
+                damageTank(other.transform);
                 Destroy(this.gameObject);
             }
-        } else if (!(other.tag == "drill" || other.tag == "tank"))
+        }
+        else if(other.tag == "shield")
+        {
+            Shield thisShield = other.gameObject.GetComponentInParent<Shield>();
+            if (thisShield.teamNumber == teamNumber && destroyedByOwnShield)
+            {
+                Destroy(this.gameObject);
+            }
+            else if (thisShield.shieldHealth != 0) {
+                thisShield.takeDamage();
+                Destroy(this.gameObject);
+            }
+            //Debug.Log("i think it workeddd?");
+        }
+        else if (other.tag == "wall" && breaksWalls)
+        {
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
+        else if (!(other.tag == "drill" || other.tag == "tankBody" || other.tag == "collectible" || other.tag == "placer" ))
         {
             Destroy(this.gameObject);
         }
@@ -37,9 +58,9 @@ public class Shot : MonoBehaviour {
     /*
      * Damages the tank that the shot hits
      */
-    void damageTank(Collider2D other)
+    void damageTank(Transform other)
     {
-        other.GetComponent<TankBody>().loseHealth(SHOT_DAMAGE);
-        other.transform.parent.GetComponentInChildren<HealthBar>().loseHealth(SHOT_DAMAGE);
+        other.GetComponentInChildren<TankBody>().loseHealth(SHOT_DAMAGE);
+        other.GetComponentInChildren<HealthBar>().loseHealth(SHOT_DAMAGE);
     }
 }
