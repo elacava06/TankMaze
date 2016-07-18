@@ -60,7 +60,7 @@ public class Shot : MonoBehaviour {
      */
     void damageTank(Transform other)
     {
-        other.GetComponentInChildren<TankBody>().loseHealth(SHOT_DAMAGE);
         other.GetComponentInChildren<HealthBar>().loseHealth(SHOT_DAMAGE);
+        other.GetComponentInChildren<TankBody>().loseHealth(SHOT_DAMAGE);
     }
 }
