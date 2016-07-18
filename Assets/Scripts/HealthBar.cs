@@ -10,12 +10,14 @@ public class HealthBar : MonoBehaviour {
     private Quaternion rotation;
     private float distance;
     private GameObject parent;
+    private Slider healthBar;
 
 	// Use this for initialization
 	void Start () {
         rotation = this.transform.rotation;
         parent = this.transform.parent.gameObject;
         distance = Vector3.Distance(parent.transform.position, this.transform.position);
+        healthBar = this.GetComponentInChildren<Slider>();
 	}
 	
 	// Update is called once per frame
@@ -29,6 +31,14 @@ public class HealthBar : MonoBehaviour {
      */
     public void loseHealth(int amount)
     {
-        this.GetComponentInChildren<Slider>().value -= amount;
+        healthBar.value -= amount;
+    }
+
+    /*
+     * Restores the health bar slider back to the maximum value
+     */
+    public void fullHealth()
+    {
+        healthBar.value = healthBar.maxValue;
     }
 }

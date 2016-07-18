@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /*
@@ -93,7 +94,26 @@ public class TankBody : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth == 0)
         {
-            Destroy(this.transform.parent.gameObject);
+            respawn();
         }
+    }
+
+    /*
+     * Spawns the player back at the spawn point
+     */
+    private void respawn()
+    {
+        this.transform.parent.transform.position = this.transform.GetComponentInParent<TankInfo>().getSpawnPoint();
+        this.transform.parent.transform.rotation = Quaternion.identity;
+        fullHealth();
+    }
+
+    /*
+     * Restores the tank back to full health
+     */
+    private void fullHealth()
+    {
+        this.transform.parent.GetComponentInChildren<HealthBar>().fullHealth();
+        currentHealth = MAX_HEALTH;
     }
 }
