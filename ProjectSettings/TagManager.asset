@@ -15,6 +15,7 @@ TagManager:
   - collectibleSpawn
   - unbreakableWall
   - placer
+  - scoreController
   layers:
   - Default
   - TransparentFX

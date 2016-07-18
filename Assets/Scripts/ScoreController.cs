@@ -1,18 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour
 {
 
-    public GUIText scoreText;
-    private int redScore;
-    private int blueScore;
-    public int pointsForClaim;
+    public Text score;
+    public int collectibleValue;
+    public Dictionary<int, int> teamScores = new Dictionary<int, int>();
+    public int numberOfTeams;
+    public int startingScore;
+    private string scoreText;
 
     // Use this for initialization
     void Start()
     {
-
+        for (int i = 1; i <= numberOfTeams; i++)
+        {
+            teamScores[i] = startingScore;
+        }
+        updateScores();
     }
 
     // Update is called once per frame
@@ -21,15 +29,13 @@ public class ScoreController : MonoBehaviour
 
     }
 
-    void scoreChange(int teamNumber, int changeAmount)
+    public void updateScores()
     {
-        if (teamNumber == 1)
+        scoreText = "";
+        for (int i = 1; i <= numberOfTeams; i++)
         {
-            redScore += pointsForClaim * changeAmount;
+            scoreText += "Team " + i + ": " + teamScores[i] + "\n";
         }
-        if (teamNumber == 2)
-        {
-            blueScore += pointsForClaim * changeAmount; 
-        }
+        score.text = scoreText;
     }
 }

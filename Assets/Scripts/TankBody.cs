@@ -14,15 +14,17 @@ public class TankBody : MonoBehaviour
     private Rigidbody2D body;
     private GameObject collectibleHolding;
     private Collectible collectibleInfo;
-    private bool isHoldingCollectible = false;
+    public bool isHoldingCollectible = false;
     private TankInfo myTankInfo;
     private int currentHealth;
+    private ScoreController scoreController;
 
     // Called once at start:
     void Start()
     {
         currentHealth = MAX_HEALTH;
         myTankInfo = GetComponentInParent<TankInfo>();
+        scoreController = GameObject.FindGameObjectWithTag("scoreController").GetComponent<ScoreController>();
     }
 
 
@@ -41,13 +43,16 @@ public class TankBody : MonoBehaviour
                     //Puts collectible on the hood and unclaims collectible
                     if (collectibleHolding.transform.parent != null)
                     {
-                        if (collectibleHolding.transform.parent.gameObject.tag == "collectibleSpawn")
+                        GameObject parentObject = collectibleHolding.transform.parent.gameObject;
+                        if (parentObject.tag == "collectibleSpawn")
                         {
-                            collectibleHolding.transform.parent.gameObject.GetComponent<CollectibleSpawn>().spawnNewCollectible();
+                            parentObject.GetComponent<CollectibleSpawn>().spawnNewCollectible();
                         }
-                        if (collectibleHolding.transform.parent.gameObject.tag == "homeBase")
+                        if (parentObject.tag == "homeBase")
                         {
-                            collectibleHolding.transform.parent.gameObject.GetComponent<HomeBase>().inUse = false;
+                            parentObject.GetComponent<HomeBase>().inUse = false;
+                            scoreController.teamScores[(parentObject.GetComponent<HomeBase>().teamNumber)] -= scoreController.collectibleValue;
+                            scoreController.updateScores();
                         }
                     }
                     isHoldingCollectible = true;
@@ -78,6 +83,9 @@ public class TankBody : MonoBehaviour
                 {
                     // Sets the collectible on the base, claims base, claims collectible
                     thisBase.inUse = true;
+                    isHoldingCollectible = false;
+                    scoreController.teamScores[(thisBase.teamNumber)] += scoreController.collectibleValue;
+                    scoreController.updateScores();
                     collectibleHolding.transform.parent = null;
                     collectibleHolding.transform.SetParent(thisBase.transform);
                     collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = -1;

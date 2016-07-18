@@ -5,6 +5,7 @@ public class CollectibleSpawn : MonoBehaviour
 {
 
     public GameObject collectible;
+    public bool collectiblesRespawn;
 
     // Use this for initialization
     void Start()
@@ -15,9 +16,12 @@ public class CollectibleSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.childCount== 0)
+        if (collectiblesRespawn)
         {
-            spawnNewCollectible();
+            if (transform.childCount == 0)
+            {
+                spawnNewCollectible();
+            }
         }
     }
 
