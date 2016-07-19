@@ -6,10 +6,12 @@ public class WallGenerator : MonoBehaviour {
     public int height;
     public GameObject wallToGenerate;
     public float roundToThisInterval;
+    public float xShift;
+    public float yShift;
 	// Use this for initialization
 	void Start () {
-        float newx = Mathf.Round(transform.position.x / roundToThisInterval) * roundToThisInterval;
-        float newy = Mathf.Round(transform.position.y / roundToThisInterval) * roundToThisInterval;
+        float newx = Mathf.Round(transform.position.x / roundToThisInterval) * roundToThisInterval + xShift;
+        float newy = Mathf.Round(transform.position.y / roundToThisInterval) * roundToThisInterval + yShift;
         transform.position = new Vector3(newx, newy);
         float blockwidth = wallToGenerate.GetComponent<SpriteRenderer>().bounds.size.x;
 	    for(int i = 0; i < width; i++)
