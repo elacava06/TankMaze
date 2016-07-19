@@ -10,13 +10,13 @@ public class PlayerSpawn : MonoBehaviour {
     * Represents the point where a player will spawn
     */
     public GameObject tank;
+    public int teamNumber;
 
-    private int[] controllerNumbers;
+    public int[] controllerNumbers;
 
     public characterClass myClass;
 	// Use this for initialization
 	void Start () {
-        controllerNumbers = transform.parent.gameObject.GetComponent<HomeBase>().getControllerNumbers();
         spawnTank();
 	}
 	
@@ -32,7 +32,6 @@ public class PlayerSpawn : MonoBehaviour {
     public void spawnTank()
     {
         GameObject tankClone = Instantiate(tank, this.transform.position, new Quaternion(0, 0, 0, 0)) as GameObject;
-        int teamNumber = this.GetComponentInParent<HomeBase>().teamNumber;
         tankClone.GetComponent<TankInfo>().teamNumber = teamNumber;
         tankClone.GetComponent<TankInitiate>().setClass(myClass);
         tankClone.GetComponent<TankInfo>().setControllerNumbers(controllerNumbers);

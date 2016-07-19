@@ -6,8 +6,6 @@ public class HomeBase : MonoBehaviour
 
     public bool inUse = false;
     public int teamNumber;
-    public GameObject playerSpawn;
-    public int[] controllerNumbers;
 
     // Use this for initialization
     void Start()
@@ -21,9 +19,6 @@ public class HomeBase : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().color = Color.blue;
         }
-
-        GameObject myPlayerSpawn = Instantiate(playerSpawn, transform.position, Quaternion.identity) as GameObject;
-        myPlayerSpawn.transform.SetParent(transform);
     }
 
 
@@ -31,10 +26,5 @@ public class HomeBase : MonoBehaviour
     void Update()
     {
 
-    }
-
-    public int[] getControllerNumbers()
-    {
-        return controllerNumbers;
     }
 }
