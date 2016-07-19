@@ -41,6 +41,15 @@ public class TankInfo : MonoBehaviour
     }
 
     /*
+     * Sets the team number of the tank
+     * @param number the the number that will become the team number
+     */
+    public void setTeamNumber(int number)
+    {
+        teamNumber = number;
+    }
+
+    /*
      * Gets the point where the tank was spawned
      * @return Vector3 that is the position of the spawn point
      */

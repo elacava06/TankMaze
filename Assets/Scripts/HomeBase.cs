@@ -27,4 +27,13 @@ public class HomeBase : MonoBehaviour
     {
 
     }
+
+    /*
+     * Gets the team number of the home base
+     * @return an int that is the team number of the base
+     */
+    public int getTeamNumber()
+    {
+        return this.teamNumber;
+    }
 }
