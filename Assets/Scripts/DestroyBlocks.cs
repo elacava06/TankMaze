@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DestroyBlocks : MonoBehaviour {
+public class DestroyBlocks : MonoBehaviour
+{
 
     public float drillRange;
     public float drillTime;
     public float drillCooldown;
-    private bool drillingCooldown=false;
+    private bool drillingCooldown = false;
     public bool drilling = false;
     private bool alreadyHit = false;
     // Use this for initialization
@@ -15,21 +16,25 @@ public class DestroyBlocks : MonoBehaviour {
     public float drillDamage;
     private float damageCounter;
     public int teamNumber;
+    public string drillAxis;
+    private int controllerNumber;
+
     void Start()
     {
-        teamNumber = GetComponentInParent<TankInfo>().teamNumber;        
+        teamNumber = GetComponentInParent<TankInfo>().teamNumber;
         drillHead = transform.GetChild(0);
         originalPosition = drillHead.localPosition;
     }
-	
-	// Update is called once per frame
-	void Update () {
-        
-        if(Input.GetAxis("drill") !=0 && !drillingCooldown)
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (Input.GetAxis(drillAxis) != 0 && !drillingCooldown)
         {
             StartCoroutine(drill());
         }
-	}
+    }
 
     IEnumerator drill()
     {
@@ -37,10 +42,10 @@ public class DestroyBlocks : MonoBehaviour {
         drilling = true;
         drillingCooldown = true;
         damageCounter = 0;
-        
+
         //Debug.Log(originalPosition);
         float fireTime = Time.time;
-        while(Time.time<(fireTime+ drillTime))
+        while (Time.time < (fireTime + drillTime))
         {
             drillHead.localPosition += Vector3.up * drillRange / drillTime * Time.deltaTime;
             yield return null;
@@ -58,7 +63,7 @@ public class DestroyBlocks : MonoBehaviour {
         //transform.Translate(transform.rotation * Vector3.up * drillRange);
         drillHead.localPosition = originalPosition;
         drillingCooldown = false;
-        
+
     }
     void OnTriggerStay2D(Collider2D other)
     {
@@ -81,7 +86,7 @@ public class DestroyBlocks : MonoBehaviour {
 
     void damageTank(Transform other)
     {
-        
+
         int damageToDeal = Mathf.RoundToInt(drillDamage - damageCounter);
         //should never deal zero damage;
         if (damageToDeal < 1)
@@ -96,10 +101,16 @@ public class DestroyBlocks : MonoBehaviour {
     {
         damageCounter++;
     }
-    
+
     public bool hasHitTank()
     {
         return alreadyHit;
+    }
+
+    public void setControllerNumber(int number)
+    {
+        controllerNumber = number;
+        drillAxis = "drill" + controllerNumber;
     }
 
 

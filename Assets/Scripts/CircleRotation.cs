@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CircleRotation : MonoBehaviour {
+public class CircleRotation : MonoBehaviour
+{
 
     public bool localRotation;
     public bool leftRight;
@@ -17,15 +18,18 @@ public class CircleRotation : MonoBehaviour {
     public direction currentDirection = direction.neither;  //why can't i make this public?
     public float inputSpeed;
 
-    private float zrotation =0;
+    private float zrotation = 0;
+    private int controllerNumber;
 
-	// Use this for initialization
-	void Start () {
-	    
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         //Debug.Log("horizontal"+Input.GetAxis(horizontalAxisName));
         //Debug.Log("vertical"+Input.GetAxis(verticalAxisName));
         if (!localRotation)
@@ -40,7 +44,7 @@ public class CircleRotation : MonoBehaviour {
         {
             doCircleRotation();
         }
-	}
+    }
 
     void rotateObject(float byHowMuch)
     {
@@ -67,7 +71,7 @@ public class CircleRotation : MonoBehaviour {
         {
             rotateObject(-inputSpeed * circleRotationSpeed * Time.deltaTime);
         }
-        else if(currentDirection == direction.counterClockwise)
+        else if (currentDirection == direction.counterClockwise)
         {
             rotateObject(inputSpeed * circleRotationSpeed * Time.deltaTime);
         }
@@ -80,7 +84,7 @@ public class CircleRotation : MonoBehaviour {
         input2 = new Vector2(Input.GetAxis(horizontalAxisName), Input.GetAxis(verticalAxisName));   //this is the new input
 
         //check to see if the input is counterclockwise or clockwise
-        if(input2.x == input1.x && input2.y == input1.y)        //the stick hasn't moved
+        if (input2.x == input1.x && input2.y == input1.y)        //the stick hasn't moved
         {
             currentDirection = direction.neither;
         }
@@ -89,9 +93,9 @@ public class CircleRotation : MonoBehaviour {
         //the stick moved
 
 
-        else if(input2.y > 0 && input1.y > 0)    //stick in top half
+        else if (input2.y > 0 && input1.y > 0)    //stick in top half
         {
-            if(input2.x < input1.x)             //moved left
+            if (input2.x < input1.x)             //moved left
             {
                 currentDirection = direction.counterClockwise;
             }
@@ -134,5 +138,11 @@ public class CircleRotation : MonoBehaviour {
                 currentDirection = direction.clockwise;
             }
         }
+    }
+
+    public void setControllerNumber(int number)
+    {
+        controllerNumber = number;
+        singleAxisName = singleAxisName + controllerNumber;
     }
 }

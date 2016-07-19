@@ -6,11 +6,13 @@ public enum characterClass { miner, shooter, everything };  //declaring outside,
 
 
 public class PlayerSpawn : MonoBehaviour {
- /*
- * Represents the point where a player will spawn
- */
+    /*
+    * Represents the point where a player will spawn
+    */
     public GameObject tank;
-    
+
+    public int[] controllerNumbers;
+
     public characterClass myClass;
 	// Use this for initialization
 	void Start () {
@@ -31,6 +33,7 @@ public class PlayerSpawn : MonoBehaviour {
         GameObject tankClone = Instantiate(tank, this.transform.position, new Quaternion(0, 0, 0, 0)) as GameObject;
         int teamNumber = this.GetComponentInParent<HomeBase>().teamNumber;
         tankClone.GetComponent<TankInfo>().teamNumber = teamNumber;
-        tankClone.GetComponent<TankInitiate>().setClass(myClass); 
+        tankClone.GetComponent<TankInitiate>().setClass(myClass);
+        tankClone.GetComponent<TankInfo>().setControllerNumbers(controllerNumbers);
     }
 }
