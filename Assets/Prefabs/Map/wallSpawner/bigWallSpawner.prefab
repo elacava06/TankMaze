@@ -62,7 +62,7 @@ MonoBehaviour:
   width: 4
   height: 4
   wallToGenerate: {fileID: 134842, guid: 6c8c66d41a588be4e8a98bcd467f8635, type: 2}
-  roundToThisInterval: 0
+  roundToThisInterval: 1
   xShift: 0
   yShift: 0
 --- !u!212 &21295768
