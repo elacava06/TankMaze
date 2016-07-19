@@ -90,8 +90,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 100
   movementSpeed: 3
-  horizontalAxis: 
-  verticalAxis: 
+  horizontalAxis: tankHorizontal
+  verticalAxis: tankVertical
 --- !u!114 &11466006
 MonoBehaviour:
   m_ObjectHideFlags: 1

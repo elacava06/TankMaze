@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed0d994481a3714b9e4af3643a8ae40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AxisName: placeBlock
+  axisName: placeBlock
   coolDown: 1
   wallSpawner: {fileID: 149398, guid: 01847abdfa3b209499a8057a4ead3715, type: 2}
   width: 2
