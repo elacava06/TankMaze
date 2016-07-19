@@ -5,8 +5,12 @@ public class WallGenerator : MonoBehaviour {
     public int width;
     public int height;
     public GameObject wallToGenerate;
+    public float roundToThisInterval;
 	// Use this for initialization
 	void Start () {
+        float newx = Mathf.Round(transform.position.x / roundToThisInterval) * roundToThisInterval;
+        float newy = Mathf.Round(transform.position.y / roundToThisInterval) * roundToThisInterval;
+        transform.position = new Vector3(newx, newy);
         float blockwidth = wallToGenerate.GetComponent<SpriteRenderer>().bounds.size.x;
 	    for(int i = 0; i < width; i++)
         {
@@ -20,6 +24,9 @@ public class WallGenerator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    if(transform.childCount == 0)
+        {
+            Destroy(gameObject);
+        }
 	}
 }
