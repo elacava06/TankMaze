@@ -8,6 +8,11 @@ public class WallGenerator : MonoBehaviour {
     public float roundToThisInterval;
 	// Use this for initialization
 	void Start () {
+        SpriteRenderer image = GetComponent<SpriteRenderer>();
+        if (image != null)
+        {
+            image.sprite = null;
+        }
         float newx = Mathf.Round(transform.position.x / roundToThisInterval) * roundToThisInterval;
         float newy = Mathf.Round(transform.position.y / roundToThisInterval) * roundToThisInterval;
         transform.position = new Vector3(newx, newy);
