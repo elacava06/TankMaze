@@ -40,7 +40,7 @@ public class TankMovement : MonoBehaviour {
     void updateAngle()
     {
         float angleChange = -1 * Input.GetAxis(horizontalAxis);
-           transform.Rotate(Vector3.forward, angleChange * turnSpeed);
+           transform.Rotate(Vector3.forward, angleChange * turnSpeed*Time.deltaTime);
     }
 
 
