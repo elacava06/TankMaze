@@ -5,14 +5,17 @@ using System.Collections;
 /*
  * Represents a tank
  */
-public class TankInfo : MonoBehaviour {
+public class TankInfo : MonoBehaviour
+{
 
     public int teamNumber;
     private Vector3 spawnPoint;
+    private int[] controllerNumbers;
 
-	// Use this for initialization
-	void Start () {
-        
+    // Use this for initialization
+    void Start()
+    {
+
         if (teamNumber == 1)
         {
             GetComponent<SpriteRenderer>().color = Color.red;
@@ -27,9 +30,10 @@ public class TankInfo : MonoBehaviour {
         }
         spawnPoint = this.transform.position;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         //foreach (Transform child in GetComponentInChildren<Transform>())
         //{
         //    Debug.Log(child.name);
@@ -43,6 +47,16 @@ public class TankInfo : MonoBehaviour {
     public Vector3 getSpawnPoint()
     {
         return this.spawnPoint;
+    }
+
+    public int[] getControllerNumbers()
+    {
+        return this.controllerNumbers;
+    }
+
+    public void setControllerNumbers(int[] numbers)
+    {
+        controllerNumbers = numbers;
     }
 
 }

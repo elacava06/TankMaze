@@ -1,28 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TankMovement : MonoBehaviour {
+public class TankMovement : MonoBehaviour
+{
     public float turnSpeed;
     public float movementSpeed;
     public string horizontalAxis;
     public string verticalAxis;
-    private int teamNumber;
+    //private int teamNumber;
+    private int controllerNumber;
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-        TankInfo myTankInfo = GetComponent<TankInfo>();
-        teamNumber = myTankInfo.teamNumber;
-        if (teamNumber == 1)
-        {
-            horizontalAxis = "tankHorizontal";
-            verticalAxis = "tankVertical";
-        }
-        else
-        {
-            horizontalAxis = "tank2Horizontal";
-            verticalAxis = "tank2Vertical";
-        }
-	}
+        //TankInfo myTankInfo = GetComponent<TankInfo>();
+        //teamNumber = myTankInfo.teamNumber;
+    }
 
     // Update is called once per frame
     void Update()
@@ -40,7 +32,7 @@ public class TankMovement : MonoBehaviour {
     void updateAngle()
     {
         float angleChange = -1 * Input.GetAxis(horizontalAxis);
-           transform.Rotate(Vector3.forward, angleChange * turnSpeed*Time.deltaTime);
+        transform.Rotate(Vector3.forward, angleChange * turnSpeed*Time.deltaTime);
     }
 
 
@@ -48,6 +40,13 @@ public class TankMovement : MonoBehaviour {
     void updateMovement()
     {
         float movementChange = Input.GetAxis(verticalAxis);
-        transform.Translate(Vector3.up * movementSpeed * movementChange *Time.deltaTime);
+        transform.Translate(Vector3.up * movementSpeed * movementChange * Time.deltaTime);
+    }
+
+    public void setControllerNumber(int number)
+    {
+        controllerNumber = number;
+        horizontalAxis = "tankHorizontal" + controllerNumber;
+        verticalAxis = "tankVertical" + controllerNumber;
     }
 }
