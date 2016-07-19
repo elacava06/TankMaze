@@ -88,8 +88,9 @@ public class DestroyBlocks : MonoBehaviour {
         {
             damageToDeal = 1;
         }
-        other.GetComponentInChildren<TankBody>().loseHealth(damageToDeal);
         other.GetComponentInChildren<HealthBar>().loseHealth(damageToDeal);
+        other.GetComponentInChildren<TankBody>().loseHealth(damageToDeal);
+        
     }
 
     void updateDrillDamage()

@@ -25,7 +25,8 @@ public class BlockCreator : MonoBehaviour {
             if (checkIfEmpty())
             {
                 fireTime = Time.time;
-                GameObject square = Instantiate(wallSpawner, transform.position, Quaternion.identity) as GameObject;
+                float angleToSpawn = Mathf.Round(transform.rotation.eulerAngles.z / 90.0f) * 90.0f;
+                GameObject square = Instantiate(wallSpawner, transform.position, Quaternion.Euler(new Vector3(0,0,angleToSpawn))) as GameObject;
                 generator = square.GetComponent<WallGenerator>();
                 generator.wallToGenerate = wallToGenerate;
                 generator.width = width;
