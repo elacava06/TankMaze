@@ -58,6 +58,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inUse: 0
   teamNumber: 0
+  playerSpawn: {fileID: 119152, guid: 851c735be83e6f9469cf7c540426ec94, type: 2}
+  controllerNumbers: 000000000000000000000000
 --- !u!212 &21202246
 SpriteRenderer:
   m_ObjectHideFlags: 1

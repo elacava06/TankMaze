@@ -11,11 +11,12 @@ public class PlayerSpawn : MonoBehaviour {
     */
     public GameObject tank;
 
-    public int[] controllerNumbers;
+    private int[] controllerNumbers;
 
     public characterClass myClass;
 	// Use this for initialization
 	void Start () {
+        controllerNumbers = transform.parent.gameObject.GetComponent<HomeBase>().getControllerNumbers();
         spawnTank();
 	}
 	
