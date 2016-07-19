@@ -42,6 +42,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectible: {fileID: 111768, guid: c3128878b4d85a6428cf611771ab9ad8, type: 2}
+  collectiblesRespawn: 1
 --- !u!212 &21266164
 SpriteRenderer:
   m_ObjectHideFlags: 1
