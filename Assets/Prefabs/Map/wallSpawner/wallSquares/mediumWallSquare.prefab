@@ -57,6 +57,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unbreakable: 0
+  wallSize: 2
+  wallGenerator: {fileID: 149398, guid: 01847abdfa3b209499a8057a4ead3715, type: 2}
+  lowestPossibleWallSize: 2
 --- !u!212 &21280968
 SpriteRenderer:
   m_ObjectHideFlags: 1

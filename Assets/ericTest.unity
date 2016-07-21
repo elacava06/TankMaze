@@ -212,7 +212,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11424002, guid: 851c735be83e6f9469cf7c540426ec94, type: 2}
       propertyPath: myClass
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 851c735be83e6f9469cf7c540426ec94, type: 2}
@@ -263,6 +263,10 @@ Prefab:
     - target: {fileID: 11428190, guid: 80fd81aa9a1443941adc62bd86320239, type: 2}
       propertyPath: height
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428190, guid: 80fd81aa9a1443941adc62bd86320239, type: 2}
+      propertyPath: lowestPossibleWallSize
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80fd81aa9a1443941adc62bd86320239, type: 2}

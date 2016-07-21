@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tank: {fileID: 133184, guid: 0f4d49b054f22344ca82eaf46e82beef, type: 2}
-  teamNumber: 0
+  teamNumber: 1
   controllerNumbers: 000000000000000000000000
   myClass: 0
 --- !u!1001 &100100000

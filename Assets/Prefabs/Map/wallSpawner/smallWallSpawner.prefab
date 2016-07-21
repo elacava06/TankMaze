@@ -62,10 +62,16 @@ MonoBehaviour:
   width: 10
   height: 10
   wallToGenerate: {fileID: 135542, guid: 0e7681ffd2811b945938550bd942c328, type: 2}
+  smallWall: {fileID: 135542, guid: 0e7681ffd2811b945938550bd942c328, type: 2}
+  mediumWall: {fileID: 100494, guid: 059c6e52e3084464a98502428ed2cfff, type: 2}
+  bigWall: {fileID: 134842, guid: 6c8c66d41a588be4e8a98bcd467f8635, type: 2}
+  reallyBigWall: {fileID: 136420, guid: 319fb6dcaa108e349b556ebbf30fabbc, type: 2}
+  roundPosition: 1
   roundToThisInterval: 1
   xShift: 0
   yShift: 0
-  nearestFractionOfUnit: 1
+  wallSize: 1
+  lowestPossibleWallSize: 2
 --- !u!212 &21267562
 SpriteRenderer:
   m_ObjectHideFlags: 1

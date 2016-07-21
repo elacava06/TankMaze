@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axisName: placeBlock
-  coolDown: 0.5
+  coolDown: 0.3
   wallSpawner: {fileID: 149398, guid: 01847abdfa3b209499a8057a4ead3715, type: 2}
   width: 3
   height: 3
