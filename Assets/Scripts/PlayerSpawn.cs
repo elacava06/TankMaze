@@ -32,7 +32,7 @@ public class PlayerSpawn : MonoBehaviour {
     public void spawnTank()
     {
         GameObject tankClone = Instantiate(tank, this.transform.position, new Quaternion(0, 0, 0, 0)) as GameObject;
-        tankClone.GetComponent<TankInfo>().setTeamNumber(this.transform.GetComponentInParent<HomeBase>().getTeamNumber());
+        tankClone.GetComponent<TankInfo>().setTeamNumber(teamNumber);
         tankClone.GetComponent<TankInitiate>().setClass(myClass);
         tankClone.GetComponent<TankInfo>().setControllerNumbers(controllerNumbers);
     }

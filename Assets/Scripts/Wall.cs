@@ -7,20 +7,24 @@ public class Wall : MonoBehaviour
     public bool unbreakable;
     private BlockCreator armOverMe;
     private GameObject armObjectOverMe;
-    bool wasJustPlaced=true;
+    bool wasJustPlaced = true;
+    public int wallSize;
+    public GameObject wallGenerator;
+    public int lowestPossibleWallSize;
+
     void Start()
     {
         StartCoroutine(justPlaced());
     }
     void OnTriggerStay2D(Collider2D coll)
     {
-        
+
         if (coll.gameObject.tag == "drill" && !unbreakable)
         {
             var blockDestroyer = coll.gameObject.GetComponentInParent<DestroyBlocks>();
             if (blockDestroyer.drilling && !blockDestroyer.hasHitTank())
             {
-                Destroy(gameObject);
+                destroyWall();
             }
         }
         else if (coll.tag == "placer")
@@ -61,10 +65,40 @@ public class Wall : MonoBehaviour
     }
     IEnumerator justPlaced()
     {
-        for(int i = 0; i< 2; i++)
+        for (int i = 0; i < 2; i++)
         {
             yield return null;
         }
         wasJustPlaced = false;
+    }
+
+    public void destroyWall()
+    {
+        if (wallSize <= lowestPossibleWallSize)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            breakIntoSmallerWalls();
+            wallSize--;
+        }
+    }
+
+    void breakIntoSmallerWalls()
+    {
+        Destroy(GetComponent<Renderer>());
+        Destroy(GetComponent<Collider2D>());
+        //Vector3 bottomLeftCorner = transform.position - new Vector3((GetComponent<Renderer>().bounds.size.x / 2), (GetComponent<Renderer>().bounds.size.y / 2), 0);
+        GameObject smallerWallGenerator = Instantiate(wallGenerator, transform.position, transform.rotation) as GameObject;
+        smallerWallGenerator.transform.SetParent(transform);
+        smallerWallGenerator.transform.localPosition = (-1 * (new Vector3((GetComponent<Renderer>().bounds.size.x / (4*transform.localScale.x)), (GetComponent<Renderer>().bounds.size.y / (4*transform.localScale.y)), 0)));
+        smallerWallGenerator.GetComponent<WallGenerator>().wallSize = wallSize - 1;
+        smallerWallGenerator.GetComponent<WallGenerator>().roundPosition = false;
+        smallerWallGenerator.GetComponent<WallGenerator>().width = 2;
+        smallerWallGenerator.GetComponent<WallGenerator>().height = 2;
+        smallerWallGenerator.GetComponent<WallGenerator>().lowestPossibleWallSize = lowestPossibleWallSize;
+        Destroy(smallerWallGenerator.GetComponent<Rigidbody2D>());
+        Destroy(this);
     }
 }

@@ -138,6 +138,10 @@ MonoBehaviour:
   width: 19
   height: 5
   wallToGenerate: {fileID: 100494, guid: 059c6e52e3084464a98502428ed2cfff, type: 2}
+  roundToThisInterval: 0
+  xShift: 0
+  yShift: 0
+  nearestFractionOfUnit: 1
 --- !u!114 &11446286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -152,6 +156,10 @@ MonoBehaviour:
   width: 5
   height: 13
   wallToGenerate: {fileID: 100494, guid: 059c6e52e3084464a98502428ed2cfff, type: 2}
+  roundToThisInterval: 0
+  xShift: 0
+  yShift: 0
+  nearestFractionOfUnit: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

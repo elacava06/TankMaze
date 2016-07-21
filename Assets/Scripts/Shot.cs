@@ -46,7 +46,7 @@ public class Shot : MonoBehaviour {
         }
         else if (other.tag == "wall" && breaksWalls)
         {
-            Destroy(other.gameObject);
+            other.GetComponent<Wall>().destroyWall();
             Destroy(this.gameObject);
         }
         else if (!(other.tag == "drill" || other.tag == "tankBody" || other.tag == "collectible" || other.tag == "placer" ))

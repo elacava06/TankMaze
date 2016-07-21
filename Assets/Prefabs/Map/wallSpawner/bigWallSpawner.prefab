@@ -65,6 +65,7 @@ MonoBehaviour:
   roundToThisInterval: 1
   xShift: 0
   yShift: 0
+  nearestFractionOfUnit: 1
 --- !u!212 &21295768
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -12,12 +12,15 @@ public class BlockCreator : MonoBehaviour
     private WallGenerator generator;
     private float fireTime;
     private int controllerNumber;
+    public float roundToThisInterval;
+    private float widthOfSprite;
 
     private bool isOverWall;
     // Use this for initialization
     void Start()
     {
-
+        widthOfSprite = wallToGenerate.GetComponent<Renderer>().bounds.size.x * width;
+        roundToThisInterval = widthOfSprite;
 
     }
 
@@ -35,6 +38,7 @@ public class BlockCreator : MonoBehaviour
                 generator.wallToGenerate = wallToGenerate;
                 generator.width = width;
                 generator.height = height;
+                generator.roundToThisInterval = roundToThisInterval;
             }
         }
 
