@@ -71,7 +71,8 @@ MonoBehaviour:
   xShift: 0
   yShift: 0
   wallSize: 3
-  lowestPossibleWallSize: 2
+  lowestPossibleWallSize: 3
+  unbreakable: 0
 --- !u!212 &21295768
 SpriteRenderer:
   m_ObjectHideFlags: 1

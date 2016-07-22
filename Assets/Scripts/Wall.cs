@@ -57,7 +57,7 @@ public class Wall : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
-        Debug.Log(coll.gameObject.tag);
+        //Debug.Log(coll.gameObject.tag);
         if (coll.gameObject.tag == "wall" && wasJustPlaced && !unbreakable)
         {
             Destroy(gameObject);

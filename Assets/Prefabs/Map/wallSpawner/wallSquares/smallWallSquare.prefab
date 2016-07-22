@@ -59,7 +59,7 @@ MonoBehaviour:
   unbreakable: 0
   wallSize: 1
   wallGenerator: {fileID: 134786, guid: 8c0b1a01a9f8a7d478af707423d0d7c6, type: 2}
-  lowestPossibleWallSize: 2
+  lowestPossibleWallSize: 1
 --- !u!212 &21220256
 SpriteRenderer:
   m_ObjectHideFlags: 1
