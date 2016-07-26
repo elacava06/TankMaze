@@ -62,9 +62,12 @@ public class Wall : MonoBehaviour
     void OnCollisionEnter2D(Collision2D coll)
     {
         //Debug.Log(coll.gameObject.tag);
-        if (coll.gameObject.tag == "wall" && wasJustPlaced && !unbreakable)
+        if (wasJustPlaced && !unbreakable)
         {
-            Destroy(gameObject);
+            if (coll.gameObject.tag == "wall" || coll.gameObject.tag == "homeBase")
+            {
+                Destroy(gameObject);
+            }
         }
     }
     IEnumerator justPlaced()
