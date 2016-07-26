@@ -11,6 +11,7 @@ public class WallGenerator : MonoBehaviour {
     public GameObject reallyBigWall;
     public GameObject unbreakableWall;
     public bool roundPosition;
+    public bool dynamicRounding=false;
     public float roundToThisInterval;
     public float xShift;
     public float yShift;
@@ -42,7 +43,10 @@ public class WallGenerator : MonoBehaviour {
         {
             Debug.Log("wallSize is not between 1 and 4");
         }
-        roundToThisInterval = wallToGenerate.GetComponent<Renderer>().bounds.size.x;
+        if (dynamicRounding)
+        {
+            roundToThisInterval = wallToGenerate.GetComponent<Renderer>().bounds.size.x;
+        }
         float newx = Mathf.Round(transform.position.x / roundToThisInterval) * roundToThisInterval + xShift;
         float newy = Mathf.Round(transform.position.y / roundToThisInterval) * roundToThisInterval + yShift;
         SpriteRenderer image = GetComponent<SpriteRenderer>();
