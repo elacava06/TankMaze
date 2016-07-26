@@ -19,6 +19,10 @@ public class WallGenerator : MonoBehaviour {
     public int lowestPossibleWallSize;
 	// Use this for initialization
 	void Start () {
+        if (transform.parent != null)
+        {
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+        }
         if (wallSize == 4)
         {
             wallToGenerate = reallyBigWall;

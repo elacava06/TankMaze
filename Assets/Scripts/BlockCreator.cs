@@ -14,13 +14,15 @@ public class BlockCreator : MonoBehaviour
     private int controllerNumber;
     public float roundToThisInterval;
     private float widthOfSprite;
+    private GameObject wallParent;
 
     private bool isOverWall;
     // Use this for initialization
     void Start()
     {
-        widthOfSprite = wallToGenerate.GetComponent<Renderer>().bounds.size.x * width;
-        //roundToThisInterval = widthOfSprite;
+        wallParent = GameObject.FindGameObjectWithTag("wallParent");
+        widthOfSprite = wallToGenerate.GetComponent<Renderer>().bounds.size.x;
+        roundToThisInterval = widthOfSprite;
 
     }
 
@@ -33,8 +35,9 @@ public class BlockCreator : MonoBehaviour
             {
                 fireTime = Time.time;
                 float angleToSpawn = Mathf.Round(transform.rotation.eulerAngles.z / 90.0f) * 90.0f;
-                GameObject square = Instantiate(wallSpawner, transform.position, Quaternion.Euler(new Vector3(0,0,angleToSpawn))) as GameObject;
+                GameObject square = Instantiate(wallSpawner, transform.position, Quaternion.Euler(new Vector3(0, 0, angleToSpawn))) as GameObject;
                 generator = square.GetComponent<WallGenerator>();
+                generator.transform.SetParent(wallParent.transform);
                 generator.wallToGenerate = wallToGenerate;
                 generator.width = width;
                 generator.height = height;

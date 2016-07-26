@@ -102,7 +102,7 @@ public class Wall : MonoBehaviour
         smallerWallGenerator.GetComponent<WallGenerator>().width = 2;
         smallerWallGenerator.GetComponent<WallGenerator>().height = 2;
         smallerWallGenerator.GetComponent<WallGenerator>().lowestPossibleWallSize = lowestPossibleWallSize;
-        Destroy(smallerWallGenerator.GetComponent<Rigidbody2D>());
+        //Destroy(smallerWallGenerator.GetComponent<Rigidbody2D>());
         Destroy(this);
     }
     void roundPosition()
