@@ -59,15 +59,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a954047e1ab0db45bba8b3bc0edffb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 3
-  height: 9
+  width: 75
+  height: 40
   wallToGenerate: {fileID: 136420, guid: 319fb6dcaa108e349b556ebbf30fabbc, type: 2}
   smallWall: {fileID: 135542, guid: 0e7681ffd2811b945938550bd942c328, type: 2}
   mediumWall: {fileID: 100494, guid: 059c6e52e3084464a98502428ed2cfff, type: 2}
   bigWall: {fileID: 134842, guid: 6c8c66d41a588be4e8a98bcd467f8635, type: 2}
   reallyBigWall: {fileID: 136420, guid: 319fb6dcaa108e349b556ebbf30fabbc, type: 2}
-  unbreakableWall: {fileID: 135762, guid: c9cd95f196543fc4da773741a60f044c, type: 2}
+  unbreakableWall: {fileID: 135762, guid: 8996c0869784c014fb55ab160fdd6834, type: 2}
   roundPosition: 1
+  dynamicRounding: 1
   roundToThisInterval: 0.8
   xShift: 0
   yShift: 0

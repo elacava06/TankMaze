@@ -44,7 +44,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   collectibleValue: 5
-  numberOfTeams: 2
+  teamNames:
+  - Red Team
+  - Blue Team
   startingScore: 0
 --- !u!1001 &100100000
 Prefab:
