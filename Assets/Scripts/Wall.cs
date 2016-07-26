@@ -64,7 +64,7 @@ public class Wall : MonoBehaviour
         //Debug.Log(coll.gameObject.tag);
         if (wasJustPlaced && !unbreakable)
         {
-            if (coll.gameObject.tag == "wall" || coll.gameObject.tag == "homeBase")
+            if (coll.gameObject.tag == "wall" || coll.gameObject.tag == "homeBase" || coll.gameObject.tag == "unbreakableWall")
             {
                 Destroy(gameObject);
             }
