@@ -16,6 +16,7 @@ TagManager:
   - unbreakableWall
   - placer
   - scoreController
+  - wallParent
   layers:
   - Default
   - TransparentFX

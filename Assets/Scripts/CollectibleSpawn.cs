@@ -25,7 +25,7 @@ public class CollectibleSpawn : MonoBehaviour
         }
     }
 
-    public void spawnNewCollectible()
+    void spawnNewCollectible()
     {
         GameObject newCollectible = Instantiate(collectible);
         newCollectible.transform.SetParent(transform);
