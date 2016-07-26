@@ -9,6 +9,7 @@ public class WallGenerator : MonoBehaviour {
     public GameObject mediumWall;
     public GameObject bigWall;
     public GameObject reallyBigWall;
+    public GameObject unbreakableWall;
     public bool roundPosition;
     public float roundToThisInterval;
     public float xShift;
@@ -33,10 +34,15 @@ public class WallGenerator : MonoBehaviour {
         {
             wallToGenerate = smallWall;
         }
+        else if (wallSize == -1)
+        {
+            wallToGenerate = unbreakableWall;
+        }
         else
         {
             Debug.Log("wallSize is not between 1 and 4");
         }
+        roundToThisInterval = wallToGenerate.GetComponent<Renderer>().bounds.size.x;
         float newx = Mathf.Round(transform.position.x / roundToThisInterval) * roundToThisInterval + xShift;
         float newy = Mathf.Round(transform.position.y / roundToThisInterval) * roundToThisInterval + yShift;
         SpriteRenderer image = GetComponent<SpriteRenderer>();

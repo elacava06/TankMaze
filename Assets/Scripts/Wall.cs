@@ -11,10 +11,14 @@ public class Wall : MonoBehaviour
     public int wallSize;
     public GameObject wallGenerator;
     public int lowestPossibleWallSize;
-
+    public bool roundUnbreakables;
     void Start()
     {
         StartCoroutine(justPlaced());
+        if (roundUnbreakables && unbreakable)
+        {
+            roundPosition();
+        }
     }
     void OnTriggerStay2D(Collider2D coll)
     {
@@ -100,5 +104,12 @@ public class Wall : MonoBehaviour
         smallerWallGenerator.GetComponent<WallGenerator>().lowestPossibleWallSize = lowestPossibleWallSize;
         Destroy(smallerWallGenerator.GetComponent<Rigidbody2D>());
         Destroy(this);
+    }
+    void roundPosition()
+    {
+        float roundToThisInterval = gameObject.GetComponent<Renderer>().bounds.size.x;
+        float newx = Mathf.Round(transform.position.x / roundToThisInterval) * roundToThisInterval;
+        float newy = Mathf.Round(transform.position.y / roundToThisInterval) * roundToThisInterval;
+        transform.position = new Vector3(newx, newy);
     }
 }
