@@ -40,7 +40,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abcc7d1b59f4dc4ba37e33219bbf606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 0}
+  scoreTexts:
+  - {fileID: 0}
+  - {fileID: 0}
   collectibleValue: 5
   numberOfTeams: 2
   startingScore: 0
