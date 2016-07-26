@@ -117,10 +117,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axisName: placeBlock
   coolDown: 0.3
-  wallSpawner: {fileID: 149398, guid: 01847abdfa3b209499a8057a4ead3715, type: 2}
-  width: 3
-  height: 3
-  wallToGenerate: {fileID: 100494, guid: 059c6e52e3084464a98502428ed2cfff, type: 2}
+  wallSpawner: {fileID: 183566, guid: 80fd81aa9a1443941adc62bd86320239, type: 2}
+  width: 2
+  height: 2
+  wallToGenerate: {fileID: 136420, guid: 319fb6dcaa108e349b556ebbf30fabbc, type: 2}
   roundToThisInterval: 0.8
 --- !u!114 &11477420
 MonoBehaviour:

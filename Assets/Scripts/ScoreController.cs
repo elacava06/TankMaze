@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreController : MonoBehaviour
 {
 
-    public Text score;
+    public Text[] scoreTexts;
     public int collectibleValue;
     public Dictionary<int, int> teamScores = new Dictionary<int, int>();
     public int numberOfTeams;
@@ -34,8 +34,8 @@ public class ScoreController : MonoBehaviour
         scoreText = "";
         for (int i = 1; i <= numberOfTeams; i++)
         {
-            scoreText += "Team " + i + ": " + teamScores[i] + "\n";
+            scoreText = "Team " + i + ": \n" + teamScores[i];
+            scoreTexts[i - 1].text = scoreText;
         }
-        score.text = scoreText;
     }
 }

@@ -20,7 +20,7 @@ public class BlockCreator : MonoBehaviour
     void Start()
     {
         widthOfSprite = wallToGenerate.GetComponent<Renderer>().bounds.size.x * width;
-        roundToThisInterval = widthOfSprite;
+        //roundToThisInterval = widthOfSprite;
 
     }
 
