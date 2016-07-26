@@ -92,7 +92,6 @@ public class TankBody : MonoBehaviour
                     collectibleHolding.transform.localPosition = new Vector3(0, 0, 0);
                     collectibleHolding.transform.localRotation = Quaternion.identity;
                     collectibleHolding.GetComponent<Collectible>().claimedTeamNumber = myTankInfo.teamNumber;
-                    collectibleHolding.GetComponent<Wall>().markClaimed(false);
                 }
             }
         }
