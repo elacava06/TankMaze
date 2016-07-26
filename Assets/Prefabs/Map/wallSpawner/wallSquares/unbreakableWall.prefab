@@ -78,6 +78,7 @@ MonoBehaviour:
   wallSize: -1
   wallGenerator: {fileID: 193512, guid: 937f0b077e40a154b93675d8b2ff1adc, type: 2}
   lowestPossibleWallSize: -1
+  roundUnbreakables: 0
 --- !u!212 &21219862
 SpriteRenderer:
   m_ObjectHideFlags: 1
