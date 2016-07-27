@@ -110,6 +110,7 @@ public class TankBody : MonoBehaviour
             {
                 collectibleHolding.transform.SetParent(null);
                 collectibleHolding.GetComponent<Wall>().markClaimed(false);
+                isHoldingCollectible = false;
             }
             respawn();
         }

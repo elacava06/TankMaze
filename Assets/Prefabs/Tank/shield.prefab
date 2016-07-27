@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localRotation: 1
   leftRight: 1
-  rotationSpeed: 2.7
+  rotationSpeed: 1.5
   drawCircles: 0
   circleRotationSpeed: 0
   singleAxisName: shield
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed766080dd61b5140a2caf268ac11733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teamNumber: 0
   maxShieldHealth: 5
   shieldHealth: 0
   regenTime: 0.8
