@@ -17,12 +17,16 @@ public class WallGenerator : MonoBehaviour {
     public float yShift;
     public int wallSize;
     public int lowestPossibleWallSize;
+    private GameObject wallParent;
 	// Use this for initialization
 	void Start () {
-        if (transform.parent != null)
-        {
-            Destroy(gameObject.GetComponent<Rigidbody2D>());
-        }
+        //if (transform.parent != null)
+        //{
+        //    Destroy(gameObject.GetComponent<Rigidbody2D>());
+        //}
+
+        wallParent = GameObject.FindGameObjectWithTag("wallParent");
+
         if (wallSize == 4)
         {
             wallToGenerate = reallyBigWall;
@@ -63,15 +67,16 @@ public class WallGenerator : MonoBehaviour {
             transform.position = new Vector3(newx, newy);
         }
         float blockwidth = wallToGenerate.GetComponent<SpriteRenderer>().bounds.size.x;
-	    for(int i = 0; i < width; i++)
+        for (int i = 0; i < width; i++)
         {
-            for(int y =0; y<height; y++)
+            for (int y = 0; y < height; y++)
             {
-                GameObject wall = Instantiate(wallToGenerate, transform.position + transform.rotation*(new Vector3(blockwidth * i, blockwidth * y)), Quaternion.identity) as GameObject;
-                wall.transform.parent = transform;
+                GameObject wall = Instantiate(wallToGenerate, transform.position + transform.rotation * (new Vector3(blockwidth * i, blockwidth * y)), Quaternion.identity) as GameObject;
+                wall.transform.parent = wallParent.transform;
                 wall.GetComponent<Wall>().lowestPossibleWallSize = lowestPossibleWallSize;
             }
         }
+        Destroy(gameObject);
 	}
 	
 	// Update is called once per frame

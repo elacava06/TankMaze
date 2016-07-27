@@ -43,7 +43,7 @@ MonoBehaviour:
   scoreTexts:
   - {fileID: 0}
   - {fileID: 0}
-  collectibleValue: 5
+  collectibleValue: 1
   teamNames:
   - Red Team
   - Blue Team
