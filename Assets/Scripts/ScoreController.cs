@@ -9,14 +9,14 @@ public class ScoreController : MonoBehaviour
     public Text[] scoreTexts;
     public int collectibleValue;
     public Dictionary<int, int> teamScores = new Dictionary<int, int>();
-    public int numberOfTeams;
+    public string[] teamNames;
     public int startingScore;
     private string scoreText;
 
     // Use this for initialization
     void Start()
     {
-        for (int i = 1; i <= numberOfTeams; i++)
+        for (int i = 1; i <= teamNames.Length; i++)
         {
             teamScores[i] = startingScore;
         }
@@ -32,9 +32,9 @@ public class ScoreController : MonoBehaviour
     public void updateScores()
     {
         scoreText = "";
-        for (int i = 1; i <= numberOfTeams; i++)
+        for (int i = 1; i <= teamNames.Length; i++)
         {
-            scoreText = "Team " + i + ": \n" + teamScores[i];
+            scoreText = teamNames[i-1] + ": \n" + teamScores[i];
             scoreTexts[i - 1].text = scoreText;
         }
     }

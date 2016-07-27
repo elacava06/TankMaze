@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localRotation: 1
   leftRight: 1
-  rotationSpeed: 3
+  rotationSpeed: 1.5
   drawCircles: 0
   circleRotationSpeed: 0
   singleAxisName: placerTurner

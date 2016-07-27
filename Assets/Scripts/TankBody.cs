@@ -44,10 +44,10 @@ public class TankBody : MonoBehaviour
                     if (collectibleHolding.transform.parent != null)
                     {
                         GameObject parentObject = collectibleHolding.transform.parent.gameObject;
-                        if (parentObject.tag == "collectibleSpawn")
-                        {
-                            parentObject.GetComponent<CollectibleSpawn>().spawnNewCollectible();
-                        }
+                        //if (parentObject.tag == "collectibleSpawn")
+                        //{
+                        //    parentObject.GetComponent<CollectibleSpawn>().spawnNewCollectible();
+                        //}
                         if (parentObject.tag == "homeBase")
                         {
                             parentObject.GetComponent<HomeBase>().inUse = false;
@@ -110,6 +110,7 @@ public class TankBody : MonoBehaviour
             {
                 collectibleHolding.transform.SetParent(null);
                 collectibleHolding.GetComponent<Wall>().markClaimed(false);
+                isHoldingCollectible = false;
             }
             respawn();
         }

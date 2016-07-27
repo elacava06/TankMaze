@@ -131,9 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9746751f6d4255a46a248735fa604e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localRotation: 0
+  localRotation: 1
   leftRight: 1
-  rotationSpeed: 2
+  rotationSpeed: 1.5
   drawCircles: 0
   circleRotationSpeed: 200
   singleAxisName: drillMovement
