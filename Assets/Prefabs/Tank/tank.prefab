@@ -14,6 +14,8 @@ GameObject:
   - 61: {fileID: 6166352}
   - 114: {fileID: 11463378}
   - 50: {fileID: 5059144}
+  - 58: {fileID: 5876140}
+  - 58: {fileID: 5876568}
   m_Layer: 0
   m_Name: tank
   m_TagString: tank
@@ -51,6 +53,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &5876140
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133184}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.9}
+  serializedVersion: 2
+  m_Radius: 2.4
+--- !u!58 &5876568
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133184}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0.9}
+  serializedVersion: 2
+  m_Radius: 2.4
 --- !u!61 &6166352
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -62,9 +92,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.20648682}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 4.8500066, y: 5.684909}
+  m_Size: {x: 4.8, y: 1.8}
 --- !u!114 &11456436
 MonoBehaviour:
   m_ObjectHideFlags: 1
