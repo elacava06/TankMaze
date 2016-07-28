@@ -10,13 +10,13 @@ public class BlockCreator : MonoBehaviour
     public int height;
     public GameObject wallToGenerate;
     private WallGenerator generator;
-    private float fireTime;
     private int controllerNumber;
     public float roundToThisInterval;
     private float widthOfSprite;
     private GameObject wallParent;
 
     private bool isOverWall;
+    private bool coolDownDone = true;
     // Use this for initialization
     void Start()
     {
@@ -29,11 +29,12 @@ public class BlockCreator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis(axisName) > 0 && Time.time > fireTime + coolDown)
+        if (Input.GetAxis(axisName) > 0 && coolDownDone)
         {
             if (checkIfEmpty())
             {
-                fireTime = Time.time;
+                coolDownDone = false;
+                Invoke("setCoolDown", coolDown);
                 float angleToSpawn = Mathf.Round(transform.rotation.eulerAngles.z / 90.0f) * 90.0f;
                 GameObject square = Instantiate(wallSpawner, transform.position, Quaternion.Euler(new Vector3(0, 0, angleToSpawn))) as GameObject;
                 generator = square.GetComponent<WallGenerator>();
@@ -45,6 +46,10 @@ public class BlockCreator : MonoBehaviour
             }
         }
 
+    }
+    void setCoolDown()
+    {
+        coolDownDone = true;
     }
     private bool checkIfEmpty()
     {
