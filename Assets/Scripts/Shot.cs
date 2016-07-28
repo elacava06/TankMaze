@@ -18,7 +18,7 @@ public class Shot : MonoBehaviour {
             if (other.GetComponent<TankInfo>().teamNumber != teamNumber)
             {
                 damageTank(other.transform);
-                Destroy(this.gameObject);
+                Destroy();
             }
         }
         else if(other.tag == "shield")
@@ -26,22 +26,22 @@ public class Shot : MonoBehaviour {
             Shield thisShield = other.gameObject.GetComponentInParent<Shield>();
             if (thisShield.teamNumber == teamNumber && destroyedByOwnShield)
             {
-                Destroy(this.gameObject);
+                Destroy();
             }
             else if (thisShield.shieldHealth != 0) {
                 thisShield.takeDamage();
-                Destroy(this.gameObject);
+                Destroy();
             }
             //Debug.Log("i think it workeddd?");
         }
         else if (other.tag == "wall" && breaksWalls)
         {
             other.GetComponent<Wall>().destroyWall();
-            Destroy(this.gameObject);
+            Destroy();
         }
         else if (!(other.tag == "drill" || other.tag == "tankBody" || other.tag == "collectible" || other.tag == "placer" ))
         {
-            Destroy(this.gameObject);
+            Destroy();
         }
     }
 
@@ -52,5 +52,13 @@ public class Shot : MonoBehaviour {
     {
         other.GetComponentInChildren<HealthBar>().loseHealth(SHOT_DAMAGE);
         other.GetComponentInChildren<TankBody>().loseHealth(SHOT_DAMAGE);
+    }
+
+    /*
+     * Deactivates this shot
+     */
+    void Destroy()
+    {
+        this.gameObject.SetActive(false);
     }
 }
