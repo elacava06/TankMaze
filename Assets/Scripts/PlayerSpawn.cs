@@ -19,11 +19,6 @@ public class PlayerSpawn : MonoBehaviour {
 	void Start () {
         spawnTank();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     /*
      * Assigns the spawning tank a team number

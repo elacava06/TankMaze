@@ -62,11 +62,6 @@ public class TankInitiate : MonoBehaviour {
         
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
     public void setClass(characterClass input)
     {
         myClass = input;

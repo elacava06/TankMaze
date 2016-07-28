@@ -20,14 +20,6 @@ public class HomeBase : MonoBehaviour
             GetComponent<SpriteRenderer>().color = Color.blue;
         }
     }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     /*
      * Gets the team number of the home base
      * @return an int that is the team number of the base
