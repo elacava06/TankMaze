@@ -21,17 +21,9 @@ public class CircleRotation : MonoBehaviour
     private float zrotation = 0;
     private int controllerNumber;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("horizontal"+Input.GetAxis(horizontalAxisName));
-        //Debug.Log("vertical"+Input.GetAxis(verticalAxisName));
         if (!localRotation)
         {
             transform.localRotation = Quaternion.identity;

@@ -31,15 +31,6 @@ public class TankInfo : MonoBehaviour
         spawnPoint = this.transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //foreach (Transform child in GetComponentInChildren<Transform>())
-        //{
-        //    Debug.Log(child.name);
-        //}
-    }
-
     /*
      * Sets the team number of the tank
      * @param number the the number that will become the team number

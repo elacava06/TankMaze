@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Wall : MonoBehaviour
 {
-
+    public float maxWallHealth = 2;
+    private float currentWallHealth;
     public bool unbreakable;
     private BlockCreator armOverMe;
     private GameObject armObjectOverMe;
@@ -12,8 +13,11 @@ public class Wall : MonoBehaviour
     public GameObject wallGenerator;
     public int lowestPossibleWallSize;
     public bool roundUnbreakables;
+    private SpriteRenderer myImage;
     void Start()
     {
+        currentWallHealth = maxWallHealth;
+        myImage = GetComponent<SpriteRenderer>();
         StartCoroutine(justPlaced());
         if (roundUnbreakables && unbreakable)
         {
@@ -91,7 +95,17 @@ public class Wall : MonoBehaviour
             wallSize--;
         }
     }
-
+    public void damageWall(float damageToBeTaken)
+    {
+        currentWallHealth -= damageToBeTaken;
+        Color temp = myImage.color;
+        temp.a = currentWallHealth / maxWallHealth;
+        myImage.color = temp;
+        if (currentWallHealth <= 0)
+        {
+            destroyWall();
+        }
+    }
     void breakIntoSmallerWalls()
     {
         Destroy(GetComponent<Renderer>());

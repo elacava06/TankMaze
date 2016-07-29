@@ -79,12 +79,4 @@ public class WallGenerator : MonoBehaviour {
         }
         Destroy(gameObject);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	    if(transform.childCount == 0)
-        {
-            Destroy(gameObject);
-        }
-	}
 }

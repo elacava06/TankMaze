@@ -13,22 +13,13 @@ public class CollectibleSpawn : MonoBehaviour
         spawnNewCollectible();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void spawnNewCollectible()
     {
         if (collectiblesRespawn)
         {
-            if (transform.childCount == 0)
-            {
-                spawnNewCollectible();
-            }
+            GameObject newCollectible = Instantiate(collectible);
+            newCollectible.transform.SetParent(transform);
+            newCollectible.transform.localPosition = new Vector3(0, 0, 0);
         }
-    }
-
-    void spawnNewCollectible()
-    {
-        GameObject newCollectible = Instantiate(collectible);
-        newCollectible.transform.SetParent(transform);
-        newCollectible.transform.localPosition = new Vector3(0, 0, 0);
     }
 }
