@@ -11,7 +11,6 @@ GameObject:
   - 212: {fileID: 21220256}
   - 61: {fileID: 6163276}
   - 114: {fileID: 11487880}
-  - 50: {fileID: 5091750}
   m_Layer: 0
   m_Name: smallWallSquare
   m_TagString: wall
@@ -32,23 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5091750
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135542}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!61 &6163276
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -74,6 +56,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8724eee3ec7a227428d5ab0109b31743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxWallHealth: 2
   unbreakable: 0
   wallSize: 1
   wallGenerator: {fileID: 134786, guid: 8c0b1a01a9f8a7d478af707423d0d7c6, type: 2}
