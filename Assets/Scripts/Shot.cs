@@ -14,10 +14,13 @@ public class Shot : MonoBehaviour {
 
     void Start()
     {
-        if (GameControl.control.getUseGameControl())
+        if (GameControl.control != null)
         {
-            this.setDestroyedByOwnShield(GameControl.control.getDestroyedByOwnShield());
-            if (!GameControl.control.getDestroyWalls()) { this.setWallDamage(0); };
+            if (GameControl.control.getUseGameControl())
+            {
+                this.setDestroyedByOwnShield(GameControl.control.getDestroyedByOwnShield());
+                if (!GameControl.control.getDestroyWalls()) { this.setWallDamage(0); };
+            }
         }
     }
 

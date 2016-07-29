@@ -22,7 +22,10 @@ public class TankBody : MonoBehaviour
     // Called once at start:
     void Start()
     {
-        if (GameControl.control.getUseGameControl()) { MAX_HEALTH = GameControl.control.getMaxHealth(); };
+        if (GameControl.control != null)
+        {
+            if (GameControl.control.getUseGameControl()) { MAX_HEALTH = GameControl.control.getMaxHealth(); };
+        }
         currentHealth = MAX_HEALTH;
         myTankInfo = GetComponentInParent<TankInfo>();
         scoreController = GameObject.FindGameObjectWithTag("scoreController").GetComponent<ScoreController>();

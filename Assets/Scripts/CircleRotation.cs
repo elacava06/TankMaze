@@ -23,10 +23,13 @@ public class CircleRotation : MonoBehaviour
 
     void Start()
     {
-        if (GameControl.control.getUseGameControl())
+        if (GameControl.control != null)
         {
-            this.setLocalRotation(GameControl.control.getLocalRotation());
-            this.setRotationSpeed(GameControl.control.getRotationSpeed());
+            if (GameControl.control.getUseGameControl())
+            {
+                this.setLocalRotation(GameControl.control.getLocalRotation());
+                this.setRotationSpeed(GameControl.control.getRotationSpeed());
+            }
         }
     }
 

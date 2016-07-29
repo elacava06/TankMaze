@@ -58,9 +58,6 @@ public class TankInitiate : MonoBehaviour {
             myShield.GetComponent<CircleRotation>().setControllerNumber(controllerNumbers[2]);
         }
         
-       
-        
-
     }
     public void setClass(characterClass input)
     {
