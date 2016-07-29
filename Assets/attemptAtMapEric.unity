@@ -679,6 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8724eee3ec7a227428d5ab0109b31743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxWallHealth: 2
   unbreakable: 1
   wallSize: 3
   wallGenerator: {fileID: 149070, guid: 3747367741610534d9b14f39703a6ae3, type: 2}
@@ -808,6 +809,22 @@ Prefab:
     - target: {fileID: 22415540, guid: dcdb38827dc094a4d81080de9c944f5a, type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456316, guid: dcdb38827dc094a4d81080de9c944f5a, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 22456316, guid: dcdb38827dc094a4d81080de9c944f5a, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 22488892, guid: dcdb38827dc094a4d81080de9c944f5a, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 22488892, guid: dcdb38827dc094a4d81080de9c944f5a, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 130
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dcdb38827dc094a4d81080de9c944f5a, type: 2}
@@ -1088,6 +1105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8724eee3ec7a227428d5ab0109b31743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxWallHealth: 2
   unbreakable: 1
   wallSize: 3
   wallGenerator: {fileID: 149070, guid: 3747367741610534d9b14f39703a6ae3, type: 2}
@@ -1366,6 +1384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8724eee3ec7a227428d5ab0109b31743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxWallHealth: 2
   unbreakable: 1
   wallSize: 3
   wallGenerator: {fileID: 149070, guid: 3747367741610534d9b14f39703a6ae3, type: 2}
@@ -1594,6 +1613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8724eee3ec7a227428d5ab0109b31743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxWallHealth: 2
   unbreakable: 1
   wallSize: 3
   wallGenerator: {fileID: 149070, guid: 3747367741610534d9b14f39703a6ae3, type: 2}
@@ -1741,6 +1761,10 @@ Prefab:
     - target: {fileID: 139482, guid: 591287435deb7b9489106b2aa75dc93f, type: 2}
       propertyPath: m_Name
       value: Map Walls
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038704, guid: 591287435deb7b9489106b2aa75dc93f, type: 2}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 591287435deb7b9489106b2aa75dc93f, type: 2}

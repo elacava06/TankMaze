@@ -10,21 +10,12 @@ public class TankMovement : MonoBehaviour
     //private int teamNumber;
     private int controllerNumber;
     // Use this for initialization
-    void Start()
-    {
-        //TankInfo myTankInfo = GetComponent<TankInfo>();
-        //teamNumber = myTankInfo.teamNumber;
-    }
-
     // Update is called once per frame
     void Update()
     {
         updateAngle();
         updateMovement();
     }
-
-
-
     // Helper functions:
 
 

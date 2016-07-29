@@ -9,17 +9,8 @@ public class Shot : MonoBehaviour {
     public int SHOT_DAMAGE;
     public int teamNumber;
     public bool breaksWalls;
+    public float wallDamage = 1f;
     public bool destroyedByOwnShield;
-
-	// Use this for initialization
-	void Start () {
-        
-    }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -46,7 +37,8 @@ public class Shot : MonoBehaviour {
         }
         else if (other.tag == "wall" && breaksWalls)
         {
-            other.GetComponent<Wall>().destroyWall();
+
+            other.GetComponent<Wall>().damageWall(wallDamage);
             Destroy(this.gameObject);
         }
         else if (!(other.tag == "drill" || other.tag == "tankBody" || other.tag == "collectible" || other.tag == "placer" ))

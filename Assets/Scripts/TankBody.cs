@@ -44,10 +44,10 @@ public class TankBody : MonoBehaviour
                     if (collectibleHolding.transform.parent != null)
                     {
                         GameObject parentObject = collectibleHolding.transform.parent.gameObject;
-                        //if (parentObject.tag == "collectibleSpawn")
-                        //{
-                        //    parentObject.GetComponent<CollectibleSpawn>().spawnNewCollectible();
-                        //}
+                        if (parentObject.tag == "collectibleSpawn")
+                        {
+                            parentObject.GetComponent<CollectibleSpawn>().spawnNewCollectible();
+                        }
                         if (parentObject.tag == "homeBase")
                         {
                             parentObject.GetComponent<HomeBase>().inUse = false;
@@ -59,7 +59,7 @@ public class TankBody : MonoBehaviour
                     
                     collectibleHolding.transform.parent = null;
                     collectibleHolding.transform.SetParent(transform);
-                    collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = 1;
+                    collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = 3;
                     collectibleHolding.transform.localPosition = new Vector3(0, 0.26f, 0);
                     collectibleHolding.transform.localRotation = Quaternion.identity;
                     collectibleInfo = collectibleHolding.GetComponent<Collectible>();
@@ -88,7 +88,7 @@ public class TankBody : MonoBehaviour
                     scoreController.updateScores();
                     collectibleHolding.transform.parent = null;
                     collectibleHolding.transform.SetParent(thisBase.transform);
-                    collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = -1;
+                    collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = 1;
                     collectibleHolding.transform.localPosition = new Vector3(0, 0, 0);
                     collectibleHolding.transform.localRotation = Quaternion.identity;
                     collectibleHolding.GetComponent<Collectible>().claimedTeamNumber = myTankInfo.teamNumber;
@@ -108,6 +108,7 @@ public class TankBody : MonoBehaviour
         {
             if (isHoldingCollectible)   //drop the collectible if I am holding one
             {
+                collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 collectibleHolding.transform.SetParent(null);
                 collectibleHolding.GetComponent<Wall>().markClaimed(false);
                 isHoldingCollectible = false;

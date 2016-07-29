@@ -19,11 +19,6 @@ public class PlayerSpawn : MonoBehaviour {
 	void Start () {
         spawnTank();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     /*
      * Assigns the spawning tank a team number
@@ -31,7 +26,7 @@ public class PlayerSpawn : MonoBehaviour {
      */
     public void spawnTank()
     {
-        GameObject tankClone = Instantiate(tank, this.transform.position, new Quaternion(0, 0, 0, 0)) as GameObject;
+        GameObject tankClone = Instantiate(tank, transform.position, transform.rotation) as GameObject;
         tankClone.GetComponent<TankInfo>().setTeamNumber(teamNumber);
         tankClone.GetComponent<TankInitiate>().setClass(myClass);
         tankClone.GetComponent<TankInfo>().setControllerNumbers(controllerNumbers);

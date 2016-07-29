@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 407928}
   - 212: {fileID: 21246172}
-  - 50: {fileID: 5015278}
   - 61: {fileID: 6141052}
   - 114: {fileID: 11476528}
   m_Layer: 0
@@ -32,23 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5015278
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 136420}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!61 &6141052
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -74,10 +56,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8724eee3ec7a227428d5ab0109b31743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxWallHealth: 2
   unbreakable: 0
   wallSize: 4
   wallGenerator: {fileID: 183566, guid: 80fd81aa9a1443941adc62bd86320239, type: 2}
   lowestPossibleWallSize: 4
+  roundUnbreakables: 0
 --- !u!212 &21246172
 SpriteRenderer:
   m_ObjectHideFlags: 1
