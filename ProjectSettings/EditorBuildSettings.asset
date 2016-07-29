@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/secondMap.unity
   - enabled: 1
     path: Assets/attemptAtMapEric.unity
+  - enabled: 1
+    path: Assets/samTest.unity

@@ -21,6 +21,15 @@ public class CircleRotation : MonoBehaviour
     private float zrotation = 0;
     private int controllerNumber;
 
+    void Start()
+    {
+        if (GameControl.control.getUseGameControl())
+        {
+            this.setLocalRotation(GameControl.control.getLocalRotation());
+            this.setRotationSpeed(GameControl.control.getRotationSpeed());
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -136,5 +145,41 @@ public class CircleRotation : MonoBehaviour
     {
         controllerNumber = number;
         singleAxisName = singleAxisName + controllerNumber;
+    }
+
+    /*
+     * Sets the rotation speed
+     * @param amount the int that will become the new rotation speed
+     */
+    public void setRotationSpeed(float amount) 
+    {
+        rotationSpeed = amount;
+    }
+
+    /*
+     * Gets the rotation speed
+     * @return float the rotation speed
+     */
+    public float getRotationSpeed()
+    {
+        return rotationSpeed;
+    }
+
+    /*
+     * Sets the local rotation
+     * @param value the bool value that will become the local rotation
+     */
+    public void setLocalRotation(bool value)
+    {
+        localRotation = value;
+    }
+
+    /*
+     * Gets the local rotation
+     * @return bool true if local rotation is on, false if local rotation is off
+     */
+    public bool getLocalRotation()
+    {
+        return localRotation;
     }
 }

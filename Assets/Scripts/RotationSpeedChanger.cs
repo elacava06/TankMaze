@@ -4,9 +4,9 @@ using System.Collections;
 using System;
 
 /*
- * Allows the button to change the value of maximum player health
+ * Allows the button to change the tank rotation speed
  */
-public class PlayerHealthChanger : MonoBehaviour {
+public class RotationSpeedChanger : MonoBehaviour {
 
     private GameObject text;
     private GameObject inputField;
@@ -25,7 +25,7 @@ public class PlayerHealthChanger : MonoBehaviour {
         textString = text.GetComponent<Text>();
         setText();
     }
-    
+
     public void OnClick()
     {
         inputField.SetActive(true);
@@ -33,7 +33,7 @@ public class PlayerHealthChanger : MonoBehaviour {
 
     public void OnEndEdit()
     {
-        GameControl.control.setMaxHealth(Convert.ToInt32(inputText.text));
+        GameControl.control.setRotationSpeed(Convert.ToSingle(inputText.text));
         GameControl.control.Save();
         setText();
         inputField.SetActive(false);
@@ -44,7 +44,7 @@ public class PlayerHealthChanger : MonoBehaviour {
      */
     private void setText()
     {
-        textString.text = "Player Health: " + GameControl.control.getMaxHealth();
+        textString.text = "Rotation Speed: " + GameControl.control.getRotationSpeed();
     }
 
 }
