@@ -18,7 +18,6 @@ public class PlayerSpawn : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         spawnTank();
-        myClass = characterClass.miner;
 	}
 
     /*
