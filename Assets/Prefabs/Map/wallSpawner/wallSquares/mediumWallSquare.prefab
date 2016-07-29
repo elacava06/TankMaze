@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21280968}
   - 61: {fileID: 6121624}
   - 114: {fileID: 11436306}
+  - 50: {fileID: 5043496}
   m_Layer: 0
   m_Name: mediumWallSquare
   m_TagString: wall
@@ -31,6 +32,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5043496
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100494}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!61 &6121624
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -42,9 +60,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0027947426, y: -0.002794981}
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3}
+  m_Size: {x: 0.27764162, y: 0.2776413}
 --- !u!114 &11436306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -60,6 +78,7 @@ MonoBehaviour:
   wallSize: 2
   wallGenerator: {fileID: 149398, guid: 01847abdfa3b209499a8057a4ead3715, type: 2}
   lowestPossibleWallSize: 2
+  roundUnbreakables: 0
 --- !u!212 &21280968
 SpriteRenderer:
   m_ObjectHideFlags: 1

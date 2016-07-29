@@ -74,6 +74,7 @@ public class WallGenerator : MonoBehaviour {
                 GameObject wall = Instantiate(wallToGenerate, transform.position + transform.rotation * (new Vector3(blockwidth * i, blockwidth * y)), Quaternion.identity) as GameObject;
                 wall.transform.parent = wallParent.transform;
                 wall.GetComponent<Wall>().lowestPossibleWallSize = lowestPossibleWallSize;
+                Destroy(wall.GetComponent<Rigidbody2D>());
             }
         }
         Destroy(gameObject);
