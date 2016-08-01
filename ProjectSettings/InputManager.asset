@@ -921,8 +921,8 @@ InputManager:
     m_Name: tankVertical4
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
+    negativeButton: joystick 4 button 1
+    positiveButton: joystick 4 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -931,14 +931,14 @@ InputManager:
     snap: 1
     invert: 1
     type: 2
-    axis: 1
+    axis: 2
     joyNum: 4
   - serializedVersion: 3
     m_Name: tankVertical7
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
+    negativeButton: joystick 7 button 1
+    positiveButton: joystick 7 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -947,14 +947,14 @@ InputManager:
     snap: 1
     invert: 1
     type: 2
-    axis: 1
+    axis: 2
     joyNum: 7
   - serializedVersion: 3
     m_Name: tankVertical10
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
+    negativeButton: joystick 10 button 1
+    positiveButton: joystick 10 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -963,7 +963,7 @@ InputManager:
     snap: 1
     invert: 1
     type: 2
-    axis: 1
+    axis: 2
     joyNum: 10
   - serializedVersion: 3
     m_Name: placerTurner
