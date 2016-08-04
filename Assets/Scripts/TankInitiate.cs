@@ -19,7 +19,7 @@ public class TankInitiate : MonoBehaviour {
     private TankInfo myTankInfo;
     private int[] controllerNumbers;
 
-    private characterClass myClass;
+    public characterClass myClass;
 
     // Use this for initialization
     void Start()

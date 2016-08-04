@@ -12,7 +12,7 @@ public class ArmFamilySpawner : MonoBehaviour {
     public GameObject shield;
     private int[] controllerNumbers;
     public int tankNumber;
-    private characterClass myClass;
+    public characterClass myClass;
     private GameObject[] arms = new GameObject[4];
     private string myAxis;
     private int armNumActive;
@@ -47,14 +47,14 @@ public class ArmFamilySpawner : MonoBehaviour {
         arms[3].transform.SetParent(transform);
         //arms[3].GetComponent<CircleRotation>().setControllerNumber(controllerNumbers[playerNumberInTank]);
         arms[3].SetActive(false);
-        if (myClass == characterClass.miner || myClass == characterClass.everything)
+        if (myClass == characterClass.miner)
         {
             armNumActive = playerNumberInTank - 1;
             arms[armNumActive].SetActive(true);
         }
-        if (myClass == characterClass.shooter || myClass == characterClass.everything)
+        if (myClass == characterClass.shooter)
         {
-            armNumActive = playerNumberInTank - 1;
+            armNumActive = playerNumberInTank + 1;
             arms[armNumActive].SetActive(true);
         }
 
