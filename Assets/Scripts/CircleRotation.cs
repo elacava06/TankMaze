@@ -1,26 +1,46 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO.Ports;
+using System;
+
 
 public class CircleRotation : MonoBehaviour
 {
 
+    //normal stuff
     public bool localRotation;
     public bool leftRight;
     public float rotationSpeed;
     public bool drawCircles;
     public float circleRotationSpeed;
+    public bool customController=false;
+    public float customControllerSpeed=10f;
+    public float reverseThreshold;
     public string singleAxisName;
     public string verticalAxisName;
     public string horizontalAxisName;
     private Vector2 input1;
     private Vector2 input2;
+    private float customInput1;
+    private float customInput2;
     public enum direction { clockwise, counterClockwise, neither };
     public direction currentDirection = direction.neither;  //why can't i make this public?
     public float inputSpeed;
-
+    SpriteRenderer myImage;
     private float zrotation = 0;
     private int controllerNumber;
 
+
+    void Start()
+    {
+        myImage = GetComponentInChildren<SpriteRenderer>();
+        if (customController)
+        {
+            OpenSerialPort();
+            
+        }
+    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -35,6 +55,10 @@ public class CircleRotation : MonoBehaviour
         if (drawCircles)
         {
             doCircleRotation();
+        }
+        if (customController)
+        {
+            pingThenListen();
         }
     }
 
@@ -132,9 +156,151 @@ public class CircleRotation : MonoBehaviour
         }
     }
 
+
     public void setControllerNumber(int number)
     {
         controllerNumber = number;
         singleAxisName = singleAxisName + controllerNumber;
     }
+
+    void customRotation(float input)
+    {
+        //Debug.Log(input);
+        //Debug.Log(currentDirection);
+        customInput1 = customInput2;
+        customInput2 = input;
+        float change = customInput2 - customInput1;
+//Debug.Log(change);
+        if (Mathf.Abs(change) < reverseThreshold) //if the change is too large (passing the zero point) then don't change the direction
+        {
+            if (change < 0)
+            {
+                currentDirection = direction.clockwise;
+            }
+            else
+            {
+                currentDirection = direction.counterClockwise;
+            }
+
+            if (currentDirection == direction.clockwise)
+            {
+                rotateObject(change * customControllerSpeed * Time.deltaTime);
+            }
+            else if (currentDirection == direction.counterClockwise)
+            {
+                rotateObject(change * customControllerSpeed * Time.deltaTime);
+            }
+        }
+
+        
+    }
+    bool blah = true;
+    void customButton()
+    {
+        if (!blah)
+        {
+            StartCoroutine(turnBlack());
+        }
+    }
+
+    IEnumerator turnBlack()
+    {
+        blah = true;
+        myImage.color = Color.black;
+        yield return new WaitForSeconds(1.0f);
+        myImage.color = Color.white;
+        blah = false;
+    }
+
+
+
+
+
+
+    //new stuff for serial port for custom controller
+    public string serialPort = "COM6";
+    public int baudrate;
+    SerialPort stream;
+
+    public void OpenSerialPort()
+    {
+        // Opens the serial port
+        stream = new SerialPort(serialPort, baudrate);
+        stream.ReadTimeout = 50;
+        stream.Open();
+        //this.stream.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+    }
+
+    public void WriteToArduino(string message)
+    {
+        // Send the request
+        stream.WriteLine(message);
+        stream.BaseStream.Flush();
+    }
+
+    void pingThenListen()
+    {
+        //send the first ping
+        WriteToArduino("PING");
+        //read from arduino
+        StartCoroutine(
+            AsynchronousReadFromArduino(
+                (float a) => customRotation(a), //this is excecuted after the serial data is read from string s
+                () => customButton(),
+                10.0f                           //this is the timeout
+                )
+            );
+    }
+
+    public IEnumerator AsynchronousReadFromArduino(Action<float> callback, Action callback2, float timeout = float.PositiveInfinity)
+    {
+        //Debug.Log("this is running");
+        DateTime initialTime = DateTime.Now;
+        DateTime nowTime;
+        TimeSpan diff = default(TimeSpan);
+
+        string dataString = null;
+        string dataString2 = null;
+
+        while (diff.Milliseconds < timeout)
+        {
+            // A single read attempt
+            try
+            {
+                dataString = stream.ReadLine();
+                dataString2 = stream.ReadLine();
+            }
+            catch (TimeoutException)
+            {
+                dataString = null;
+                dataString2 = null;
+            }
+
+            if (dataString != null && dataString2 != null)
+            {
+                callback(float.Parse(dataString));
+                if(dataString2 == "1")
+                {
+                    callback2();
+                }
+                yield return null;
+            }
+            else {
+                yield return new WaitForSeconds(0.05f);
+            }
+
+            nowTime = DateTime.Now;
+            diff = nowTime - initialTime;
+
+        }
+
+        yield return null;
+    }
+
+    public void CloseSerialPort()
+    {
+        stream.Close();
+    }
+
+
 }
