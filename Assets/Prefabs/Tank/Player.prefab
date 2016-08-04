@@ -49,6 +49,9 @@ MonoBehaviour:
   drill: {fileID: 111182, guid: 38645337534be0442ab23172a24896dd, type: 2}
   shield: {fileID: 195880, guid: 51b70d3231466f34fa11b06d2db95c12, type: 2}
   tankNumber: 0
+  myClass: 0
+  coolDown: 0.5
+  gameStateManager: {fileID: 0}
 --- !u!114 &11450590
 MonoBehaviour:
   m_ObjectHideFlags: 1

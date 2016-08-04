@@ -11,6 +11,7 @@ public class GameControl : MonoBehaviour {
     private int MAX_HEALTH;
     private float rotationSpeed;
     private bool localRotation;
+    private bool allowedToChange;
     private bool destroyByOwnShield;
     private bool destroyWalls;
 
@@ -32,6 +33,7 @@ public class GameControl : MonoBehaviour {
         data.setMaxHealth(this.getMaxHealth());
         data.setRotationSpeed(this.getRotationSpeed());
         data.setLocalRotation(this.getLocalRotation());
+        data.setAllowedToChange(this.getAllowedToChange());
         data.setDestroyedByOwnShield(this.getDestroyedByOwnShield());
         data.setDestroyWalls(this.getDestroyWalls());
         bf.Serialize(file, data);
@@ -52,6 +54,7 @@ public class GameControl : MonoBehaviour {
             this.setMaxHealth(data.getMaxHealth());
             this.setRotationSpeed(data.getRotationSpeed());
             this.setLocalRotation(data.getLocalRotation());
+            this.setAllowedToChange(data.getAllowedToChange());
             this.setDestroyedByOwnShield(data.getDestroyedByOwnShield());
             this.setDestroyWalls(data.getDestroyWalls());
         }
@@ -110,6 +113,20 @@ public class GameControl : MonoBehaviour {
     {
         return localRotation;
     }
+    public void setAllowedToChange(bool value)
+    {
+        allowedToChange = value;
+    }
+
+    /*
+     * Gets whether local rotation is on or off
+     * @return bool true if local rotation is on, false if local rotation is off
+     */
+    public bool getAllowedToChange()
+    {
+        return allowedToChange;
+    }
+
 
     /*
      * Returns whether or not game control will be used
@@ -169,11 +186,21 @@ class GameData
     private bool localRotation;
     private bool destroyedByOwnShield;
     private bool destroyWalls;
-
+    private bool allowedToChange;
     /*
      * Gets the maximum health data
      * @return int the maximum health
      */
+
+    public void setAllowedToChange(bool value)
+    {
+        allowedToChange = value;
+    }
+
+    public bool getAllowedToChange()
+    {
+        return allowedToChange;
+    }
     public int getMaxHealth()
     {
         return MAX_HEALTH;

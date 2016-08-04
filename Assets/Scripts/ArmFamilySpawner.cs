@@ -16,12 +16,14 @@ public class ArmFamilySpawner : MonoBehaviour {
     private GameObject[] arms = new GameObject[4];
     private string myAxis;
     private int armNumActive;
-
+    public float coolDown;
+    private float fireTime;
     public GameObject gameStateManager;
     private GameState gameManager;
 
     void Start()
     {
+        
         gameStateManager = GameObject.Find("GameManager");
         gameManager = gameStateManager.GetComponent<GameState>();
         controllerNumbers = GetComponentInParent<TankInfo>().getControllerNumbers();
@@ -68,7 +70,6 @@ public class ArmFamilySpawner : MonoBehaviour {
     {
         if (gameManager.currentGameState == GameState.gameState.lobby)
         {
-            //do the checking for switch here
             if (Input.GetButtonDown(myAxis) && Input.GetAxisRaw(myAxis) > 0)
             {
                 switchArms(1);
@@ -78,10 +79,27 @@ public class ArmFamilySpawner : MonoBehaviour {
                 switchArms(-1);
             }
         }
+        else if (gameManager.allowedToSwitchDuringGamePlay)
+        {
+            //do the checking for switch here
+            if ((Time.time) > (fireTime + coolDown))
+            {
+                if (Input.GetButtonDown(myAxis) && Input.GetAxisRaw(myAxis) > 0)
+                {
+                    switchArms(1);
+                }
+                if (Input.GetButtonDown(myAxis) && Input.GetAxisRaw(myAxis) < 0)
+                {
+                    switchArms(-1);
+                }
+            }
+        }
+        
     }
 
     void switchArms(int i)
     {
+        fireTime = Time.time;
         arms[armNumActive].SetActive(false);
         armNumActive += i;
         
@@ -96,4 +114,5 @@ public class ArmFamilySpawner : MonoBehaviour {
         
         arms[armNumActive].SetActive(true);
     }
+    
 }

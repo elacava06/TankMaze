@@ -35,7 +35,6 @@ public class BlockCreator : MonoBehaviour
     {
         if (gameManager.currentGameState == GameState.gameState.play)
         {
-            Debug.Log("here");
             if (Input.GetAxis(axisName) > 0 && coolDownDone)
             {
                 if (checkIfEmpty())

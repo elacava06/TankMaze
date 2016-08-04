@@ -21,13 +21,22 @@ public class DestroyBlocks : MonoBehaviour
     public GameObject gameStateManager;
     private GameState gameManager;
 
-    void Start()
+    void Awake()
     {
         gameStateManager = GameObject.Find("GameManager");
         gameManager = gameStateManager.GetComponent<GameState>();
-        teamNumber = GetComponentInParent<TankInfo>().teamNumber;
         drillHead = transform.GetChild(0);
         originalPosition = drillHead.localPosition;
+    }
+    void Start()
+    {
+        teamNumber = GetComponentInParent<TankInfo>().teamNumber;
+    }
+    void OnEnable()
+    {
+        drillHead.localPosition = originalPosition;
+        drillingCooldown = false;
+        drilling = false;
     }
 
     // Update is called once per frame
