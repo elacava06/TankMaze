@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21219862}
   - 61: {fileID: 6106420}
   - 114: {fileID: 11433946}
-  - 50: {fileID: 5004642}
+  - 50: {fileID: 5015668}
   m_Layer: 0
   m_Name: unbreakableWall
   m_TagString: unbreakableWall
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5004642
+--- !u!50 &5015668
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8724eee3ec7a227428d5ab0109b31743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxWallHealth: 2
   unbreakable: 1
   wallSize: -1
   wallGenerator: {fileID: 193512, guid: 937f0b077e40a154b93675d8b2ff1adc, type: 2}

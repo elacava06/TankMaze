@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21280968}
   - 61: {fileID: 6121624}
   - 114: {fileID: 11436306}
-  - 50: {fileID: 5043496}
+  - 50: {fileID: 5067388}
   m_Layer: 0
   m_Name: mediumWallSquare
   m_TagString: wall
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5043496
+--- !u!50 &5067388
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8724eee3ec7a227428d5ab0109b31743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxWallHealth: 2
   unbreakable: 0
   wallSize: 2
   wallGenerator: {fileID: 149398, guid: 01847abdfa3b209499a8057a4ead3715, type: 2}

@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 456994}
   - 212: {fileID: 21208064}
-  - 50: {fileID: 5008270}
   - 61: {fileID: 6170144}
   - 114: {fileID: 11411220}
+  - 50: {fileID: 5078908}
   m_Layer: 0
   m_Name: bigWallSquare
   m_TagString: wall
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5008270
+--- !u!50 &5078908
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
@@ -74,10 +74,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8724eee3ec7a227428d5ab0109b31743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxWallHealth: 2
   unbreakable: 0
   wallSize: 3
   wallGenerator: {fileID: 149070, guid: 3747367741610534d9b14f39703a6ae3, type: 2}
   lowestPossibleWallSize: 3
+  roundUnbreakables: 0
 --- !u!212 &21208064
 SpriteRenderer:
   m_ObjectHideFlags: 1
