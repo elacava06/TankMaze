@@ -120,13 +120,14 @@ MonoBehaviour:
   drillDamage: 3
   teamNumber: 0
   drillAxis: 
+  gameStateManager: {fileID: 0}
 --- !u!114 &11495936
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111182}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9746751f6d4255a46a248735fa604e66, type: 3}
   m_Name: 
@@ -136,11 +137,16 @@ MonoBehaviour:
   rotationSpeed: 1.5
   drawCircles: 0
   circleRotationSpeed: 200
-  singleAxisName: drillMovement
+  customController: 0
+  customControllerSpeed: 10
+  reverseThreshold: 0
+  singleAxisName: shield
   verticalAxisName: drillVertical
   horizontalAxisName: drillHorizontal
   currentDirection: 2
   inputSpeed: 0
+  serialPort: COM6
+  baudrate: 0
 --- !u!212 &21297608
 SpriteRenderer:
   m_ObjectHideFlags: 1

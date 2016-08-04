@@ -16,16 +16,23 @@ public class Turret : MonoBehaviour
     private int controllerNumber;
     public string shootAxis;
 
-    // Use this for initialization
+    public GameObject gameStateManager;
+    private GameState gameManager;
+
     void Start()
     {
+        gameStateManager = GameObject.Find("GameManager");
+        gameManager = gameStateManager.GetComponent<GameState>();
         myTankInfo = GetComponentInParent<TankInfo>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        shoot();
+        if (gameManager.currentGameState == GameState.gameState.play)
+        {
+            shoot();
+        }
     }
 
     /*
@@ -53,6 +60,6 @@ public class Turret : MonoBehaviour
     public void setControllerNumber(int number)
     {
         controllerNumber = number;
-        shootAxis = "shoot" + controllerNumber;
+        shootAxis = "drill" + controllerNumber;
     }
 }

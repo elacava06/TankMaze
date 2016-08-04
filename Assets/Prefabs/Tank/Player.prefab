@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &148108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 495126}
+  - 114: {fileID: 11409730}
+  - 114: {fileID: 11450590}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &495126
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148108}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.858234, y: 0.23542458, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11409730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f5e11abe17e254bbd5dd5f4a2e35a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumberInTank: 0
+  turret: {fileID: 123594, guid: a1aa47ee02a4cbc4a939617e99a9a9f7, type: 2}
+  turretOffset: -0.3
+  arm: {fileID: 180462, guid: cfd186e13b732c34e85a70d580fddd73, type: 2}
+  armOffset: -0.3
+  drill: {fileID: 111182, guid: 38645337534be0442ab23172a24896dd, type: 2}
+  shield: {fileID: 195880, guid: 51b70d3231466f34fa11b06d2db95c12, type: 2}
+  tankNumber: 0
+--- !u!114 &11450590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9746751f6d4255a46a248735fa604e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localRotation: 1
+  leftRight: 1
+  rotationSpeed: 1.5
+  drawCircles: 0
+  circleRotationSpeed: 0
+  customController: 0
+  customControllerSpeed: 10
+  reverseThreshold: 0
+  singleAxisName: shield2
+  verticalAxisName: 
+  horizontalAxisName: 
+  currentDirection: 2
+  inputSpeed: 0
+  serialPort: COM6
+  baudrate: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 148108}
+  m_IsPrefabParent: 1

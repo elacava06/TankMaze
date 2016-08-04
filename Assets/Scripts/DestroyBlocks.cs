@@ -18,9 +18,13 @@ public class DestroyBlocks : MonoBehaviour
     public int teamNumber;
     public string drillAxis;
     private int controllerNumber;
+    public GameObject gameStateManager;
+    private GameState gameManager;
 
     void Start()
     {
+        gameStateManager = GameObject.Find("GameManager");
+        gameManager = gameStateManager.GetComponent<GameState>();
         teamNumber = GetComponentInParent<TankInfo>().teamNumber;
         drillHead = transform.GetChild(0);
         originalPosition = drillHead.localPosition;
@@ -29,10 +33,12 @@ public class DestroyBlocks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetAxis(drillAxis) != 0 && !drillingCooldown)
+        if (gameManager.currentGameState == GameState.gameState.play)
         {
-            StartCoroutine(drill());
+            if (Input.GetAxis(drillAxis) != 0 && !drillingCooldown)
+            {
+                StartCoroutine(drill());
+            }
         }
     }
 

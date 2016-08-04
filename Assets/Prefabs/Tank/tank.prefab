@@ -122,6 +122,7 @@ MonoBehaviour:
   movementSpeed: 3
   horizontalAxis: tankHorizontal
   verticalAxis: tankVertical
+  gameStateManager: {fileID: 0}
 --- !u!114 &11466006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,6 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b7c7d74deb42542bbd21d56b0b29d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersPerTank: 3
+  subPlayer: {fileID: 148108, guid: 6a4c8cdc850ddfa44943fc986481533a, type: 2}
   body: {fileID: 143456, guid: eef0eb18bafbaa6438ff4916c5d29fb5, type: 2}
   turret: {fileID: 123594, guid: a1aa47ee02a4cbc4a939617e99a9a9f7, type: 2}
   turretOffset: -0.3

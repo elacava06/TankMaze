@@ -10,11 +10,22 @@ public class TankMovement : MonoBehaviour
     //private int teamNumber;
     private int controllerNumber;
     // Use this for initialization
-    // Update is called once per frame
-    void Update()
+    public GameObject gameStateManager;
+    private GameState gameManager;
+
+    void Start()
     {
-        updateAngle();
-        updateMovement();
+        gameStateManager = GameObject.Find("GameManager");
+        gameManager = gameStateManager.GetComponent<GameState>();
+    }
+        // Update is called once per frame
+        void Update()
+    {
+        if (gameManager.currentGameState == GameState.gameState.play)
+        {
+            updateAngle();
+            updateMovement();
+        }
     }
     // Helper functions:
 
