@@ -29,9 +29,11 @@ public class CircleRotation : MonoBehaviour
     SpriteRenderer myImage;
     private float zrotation = 0;
     private int controllerNumber;
+    private Quaternion initialRotation;
 
     void Start()
     {
+        initialRotation = transform.rotation;
         myImage = GetComponentInChildren<SpriteRenderer>();
         if (customController)
         {
@@ -50,10 +52,6 @@ public class CircleRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!localRotation)
-        {
-            transform.localRotation = Quaternion.identity;
-        }
         if (leftRight)
         {
             incrementRotationLocal();
@@ -77,7 +75,7 @@ public class CircleRotation : MonoBehaviour
 
         else {
             zrotation += byHowMuch;
-            transform.rotation = Quaternion.Euler(0, 0, zrotation);
+            transform.rotation = Quaternion.Euler(0, 0, zrotation + initialRotation.eulerAngles.z);
         }
     }
     void incrementRotationLocal()
