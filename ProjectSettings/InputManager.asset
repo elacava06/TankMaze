@@ -699,8 +699,8 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: a
     positiveButton: d
-    altNegativeButton: 
-    altPositiveButton: 
+    altNegativeButton: left
+    altPositiveButton: right
     gravity: 1000
     dead: 0.2
     sensitivity: 1
@@ -1593,10 +1593,26 @@ InputManager:
     m_Name: changeArm11
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: joystick 10 button 4
-    positiveButton: joystick 10 button 5
+    negativeButton: joystick 11 button 4
+    positiveButton: joystick 11 button 5
     altNegativeButton: 
     altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 1
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 10
+  - serializedVersion: 3
+    m_Name: changeArm12
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: s
+    positiveButton: w
+    altNegativeButton: down
+    altPositiveButton: up
     gravity: 3
     dead: 0.001
     sensitivity: 1
