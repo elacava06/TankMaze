@@ -17,7 +17,7 @@ public class ArmFamilySpawner : MonoBehaviour {
     private string myAxis;
     private int armNumActive;
     public float coolDown;
-    private float fireTime;
+    private float fireTime = 0.0F;
     public GameObject gameStateManager;
     private GameState gameManager;
 
@@ -60,7 +60,6 @@ public class ArmFamilySpawner : MonoBehaviour {
             arms[armNumActive].SetActive(true);
         }
 
-
     }
     public void setClass(characterClass input)
     {
@@ -82,7 +81,7 @@ public class ArmFamilySpawner : MonoBehaviour {
         else if (gameManager.allowedToSwitchDuringGamePlay)
         {
             //do the checking for switch here
-            if ((Time.time) > (fireTime + coolDown))
+            if (Time.time > fireTime)
             {
                 if (Input.GetButtonDown(myAxis) && Input.GetAxisRaw(myAxis) > 0)
                 {
@@ -99,7 +98,7 @@ public class ArmFamilySpawner : MonoBehaviour {
 
     void switchArms(int i)
     {
-        fireTime = Time.time;
+        fireTime = Time.time + coolDown;
         arms[armNumActive].SetActive(false);
         armNumActive += i;
         
