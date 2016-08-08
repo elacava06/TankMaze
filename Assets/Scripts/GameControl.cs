@@ -17,6 +17,10 @@ public class GameControl : MonoBehaviour {
 
     void Awake()
     {
+        if(GameObject.FindGameObjectsWithTag("gameControl").Length > 1)
+        {
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(this.gameObject);
         control = this;
         if (this.getUseGameControl()) { Load(); };
