@@ -59,17 +59,25 @@ public class TankBody : MonoBehaviour
                             scoreController.updateScores();
                         }
                     }
-                    isHoldingCollectible = true;
-                    
-                    collectibleHolding.transform.parent = null;
-                    collectibleHolding.transform.SetParent(transform);
-                    collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = 3;
-                    collectibleHolding.transform.localPosition = new Vector3(0, 0.26f, 0);
-                    collectibleHolding.transform.localRotation = Quaternion.identity;
-                    collectibleInfo = collectibleHolding.GetComponent<Collectible>();
-                    collectibleInfo.claimedTeamNumber = -1;
-                    collectibleHolding.GetComponent<Wall>().markClaimed(true);
 
+                    if (collectibleHolding.transform.parent != null && collectibleHolding.transform.parent.gameObject.tag == "tankBody")
+                    {
+
+                    }
+                    else
+                    {
+                        isHoldingCollectible = true;
+
+                        collectibleHolding.transform.parent = null;
+                        collectibleHolding.transform.SetParent(transform);
+                        collectibleHolding.GetComponent<SpriteRenderer>().sortingOrder = 3;
+                        collectibleHolding.transform.localPosition = new Vector3(0, 0.26f, 0);
+                        collectibleHolding.transform.localRotation = Quaternion.identity;
+                        collectibleInfo = collectibleHolding.GetComponent<Collectible>();
+                        collectibleInfo.claimedTeamNumber = -1;
+                        collectibleHolding.GetComponent<Wall>().markClaimed(true);
+
+                    }
                 }
             }
         }
