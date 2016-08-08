@@ -57,7 +57,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8724eee3ec7a227428d5ab0109b31743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unbreakable: 0
+  maxWallHealth: 2
+  unbreakable: 1
   wallSize: 0
   wallGenerator: {fileID: 0}
   lowestPossibleWallSize: 0
