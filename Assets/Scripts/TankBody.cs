@@ -119,6 +119,15 @@ public class TankBody : MonoBehaviour
     }
 
     /*
+     * Gets the maximum health
+     * @return int that is the maximum health
+     */
+    public int getMaxHealth()
+    {
+        return MAX_HEALTH;
+    }
+
+    /*
      * Lowers the players health by amount
      * The tank will respawn if health reaches 0
      */

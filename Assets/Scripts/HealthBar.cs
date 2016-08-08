@@ -18,6 +18,7 @@ public class HealthBar : MonoBehaviour {
         parent = this.transform.parent.gameObject;
         distance = Vector3.Distance(parent.transform.position, this.transform.position);
         healthBar = this.GetComponentInChildren<Slider>();
+        healthBar.maxValue = parent.GetComponentInChildren<TankBody>().getMaxHealth();
 	}
 	
 	// Update is called once per frame
