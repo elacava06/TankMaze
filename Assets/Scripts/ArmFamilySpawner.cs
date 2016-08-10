@@ -28,26 +28,26 @@ public class ArmFamilySpawner : MonoBehaviour {
         gameManager = gameStateManager.GetComponent<GameState>();
         controllerNumbers = GetComponentInParent<TankInfo>().getControllerNumbers();
         myAxis = "changeArm" + controllerNumbers[playerNumberInTank];
-        GetComponent<CircleRotation>().singleAxisName = "shield" + controllerNumbers[playerNumberInTank];
+        //GetComponent<CircleRotation>().singleAxisName = "shield" + controllerNumbers[playerNumberInTank];
 
         arms[0] = Instantiate(arm, transform.position + transform.rotation * (new Vector3(0, armOffset)), transform.rotation) as GameObject;
         arms[0].transform.SetParent(transform);
-        //arms[0].GetComponent<CircleRotation>().setControllerNumber(controllerNumbers[playerNumberInTank]);
+        arms[0].GetComponent<CircleRotation>().setControllerNumber(controllerNumbers[playerNumberInTank]);
         arms[0].GetComponentInChildren<BlockCreator>().setControllerNumber(controllerNumbers[playerNumberInTank]);
         arms[0].SetActive(false);
         arms[1] = Instantiate(drill, transform.position, transform.rotation) as GameObject;
         arms[1].transform.SetParent(transform);
-        //arms[1].GetComponent<CircleRotation>().setControllerNumber(controllerNumbers[playerNumberInTank]);
+        arms[1].GetComponent<CircleRotation>().setControllerNumber(controllerNumbers[playerNumberInTank]);
         arms[1].GetComponent<DestroyBlocks>().setControllerNumber(controllerNumbers[playerNumberInTank]);
         arms[1].SetActive(false);
         arms[2] = Instantiate(turret, transform.position + transform.rotation * (new Vector3(0, turretOffset)), transform.rotation) as GameObject;
         arms[2].transform.SetParent(transform);
-        //arms[2].GetComponent<CircleRotation>().setControllerNumber(controllerNumbers[playerNumberInTank]);
+        arms[2].GetComponent<CircleRotation>().setControllerNumber(controllerNumbers[playerNumberInTank]);
         arms[2].GetComponent<Turret>().setControllerNumber(controllerNumbers[playerNumberInTank]);
         arms[2].SetActive(false);
         arms[3] = Instantiate(shield, transform.position, transform.rotation) as GameObject;
         arms[3].transform.SetParent(transform);
-        //arms[3].GetComponent<CircleRotation>().setControllerNumber(controllerNumbers[playerNumberInTank]);
+        arms[3].GetComponent<CircleRotation>().setControllerNumber(controllerNumbers[playerNumberInTank]);
         arms[3].SetActive(false);
         if (myClass == characterClass.miner)
         {
@@ -99,6 +99,7 @@ public class ArmFamilySpawner : MonoBehaviour {
     void switchArms(int i)
     {
         fireTime = Time.time + coolDown;
+        var currentRotation = arms[armNumActive].transform.localRotation;
         arms[armNumActive].SetActive(false);
         armNumActive += i;
         
@@ -112,6 +113,7 @@ public class ArmFamilySpawner : MonoBehaviour {
         }
         
         arms[armNumActive].SetActive(true);
+        arms[armNumActive].transform.localRotation = currentRotation;
     }
     
 }

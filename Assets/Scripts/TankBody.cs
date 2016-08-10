@@ -9,7 +9,7 @@ public class TankBody : MonoBehaviour
 {
     //public variables
     public int MAX_HEALTH;
-    
+    public GameObject explosion;
     //private variables
     private Rigidbody2D body;
     private GameObject collectibleHolding;
@@ -143,6 +143,7 @@ public class TankBody : MonoBehaviour
                 collectibleHolding.GetComponent<Wall>().markClaimed(false);
                 isHoldingCollectible = false;
             }
+            Instantiate(explosion, transform.position, Quaternion.identity);
             respawn();
         }
     }
