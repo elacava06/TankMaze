@@ -1190,6 +1190,22 @@ InputManager:
     axis: 2
     joyNum: 1
   - serializedVersion: 3
+    m_Name: tankVertical2
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: joystick 2 button 1
+    positiveButton: joystick 2 button 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.2
+    sensitivity: 1
+    snap: 1
+    invert: 1
+    type: 2
+    axis: 2
+    joyNum: 2
+  - serializedVersion: 3
     m_Name: tankVertical4
     descriptiveName: 
     descriptiveNegativeName: 
