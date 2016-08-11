@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 /*
- * Allows the button to change whether or not components move with the tank body or not
+ * Allows the button to change whether or tanks can change attachments in game
  */
 public class ArmChangerUI : MonoBehaviour
 {
@@ -40,8 +40,8 @@ public class ArmChangerUI : MonoBehaviour
     }
 
     /*
-     * Gets the local rotation
-     * @return bool true if local rotation is on, false if it is off
+     * Gets whether or not tanks can change attachments in game
+     * @return bool true if tanks can change attachments in game, otherwise false
      */
     public bool getAllowedToChange()
     {
@@ -49,8 +49,8 @@ public class ArmChangerUI : MonoBehaviour
     }
 
     /*
-     * Sets the local rotation
-     * @param value the bool value that will become the local rotation
+     * Sets the whether or not tanks can change attachments in game
+     * @param value the bool value that will determine if tanks can change attachments in game
      */
     public void setAllowedToChange(bool value)
     {
