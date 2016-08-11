@@ -1537,7 +1537,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11424002, guid: 851c735be83e6f9469cf7c540426ec94, type: 2}
       propertyPath: controllerNumbers.Array.data[1]
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11424002, guid: 851c735be83e6f9469cf7c540426ec94, type: 2}
       propertyPath: controllerNumbers.Array.data[2]
