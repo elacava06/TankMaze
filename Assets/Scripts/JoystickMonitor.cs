@@ -28,7 +28,7 @@ public class JoystickMonitor : MonoBehaviour {
             
         }
         string temp = "Joysticks Connected: " + numJoysticks;
-        Debug.Log(temp);
+        //Debug.Log(temp);
         myText.text = temp+ "\n"+compileText;
 
 	}

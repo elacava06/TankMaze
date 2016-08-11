@@ -78,11 +78,13 @@ public class CircleRotation : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, zrotation + initialRotation.eulerAngles.z);
         }
     }
+
     void incrementRotationLocal()
     {
         float change = Input.GetAxis(singleAxisName);
         rotateObject(-change * rotationSpeed);
     }
+
     void doCircleRotation()
     {
         getRotationDirection(); //sets currentDirection
@@ -97,6 +99,7 @@ public class CircleRotation : MonoBehaviour
         }
 
     }
+
     void getRotationDirection()
     {
         //record 2 input values to compare

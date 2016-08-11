@@ -17,12 +17,14 @@ public class GameControl : MonoBehaviour {
 
     void Awake()
     {
-        if(GameObject.FindGameObjectsWithTag("gameControl").Length > 1)
+        if (control == null)
         {
-            Destroy(gameObject);
+            DontDestroyOnLoad(this.gameObject);
+            control = this;
+        } else if (control != this)
+        {
+            Destroy(this.gameObject);
         }
-        DontDestroyOnLoad(this.gameObject);
-        control = this;
         if (this.getUseGameControl()) { Load(); };
     }
     
@@ -117,20 +119,24 @@ public class GameControl : MonoBehaviour {
     {
         return localRotation;
     }
+
+    /*
+     * Sets whether or not vehicles can change their attachments in game
+     * @param value the bool that will determine whether or not a vehicle can change attachments in game
+     */
     public void setAllowedToChange(bool value)
     {
         allowedToChange = value;
     }
 
     /*
-     * Gets whether local rotation is on or off
-     * @return bool true if local rotation is on, false if local rotation is off
+     * Gets whether or not vehicles can change attachments in game
+     * @return bool true if vehicles can change attachments in game, otherwise false
      */
     public bool getAllowedToChange()
     {
         return allowedToChange;
     }
-
 
     /*
      * Returns whether or not game control will be used
@@ -195,16 +201,6 @@ class GameData
      * Gets the maximum health data
      * @return int the maximum health
      */
-
-    public void setAllowedToChange(bool value)
-    {
-        allowedToChange = value;
-    }
-
-    public bool getAllowedToChange()
-    {
-        return allowedToChange;
-    }
     public int getMaxHealth()
     {
         return MAX_HEALTH;
@@ -289,5 +285,23 @@ class GameData
     public void setDestroyWalls(bool value)
     {
         destroyWalls = value;
+    }
+
+    /*
+     * Sets the allowed to change data
+     * @param value the bool that will be the new allowed to change data
+     */
+    public void setAllowedToChange(bool value)
+    {
+        allowedToChange = value;
+    }
+
+    /*
+     * Gets the allowed to change data
+     * @return bool the allowed to change data
+     */
+    public bool getAllowedToChange()
+    {
+        return allowedToChange;
     }
 }

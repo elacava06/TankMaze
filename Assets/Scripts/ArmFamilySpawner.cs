@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ArmFamilySpawner : MonoBehaviour {
 
+    public bool allowedToChangeDuringGameplay;
     public int playerNumberInTank;
     public GameObject turret;
     public float turretOffset;
@@ -24,6 +25,14 @@ public class ArmFamilySpawner : MonoBehaviour {
     void Start()
     {
         
+        if (GameControl.control != null)
+        {
+            if (GameControl.control.getUseGameControl())
+            {
+                setAllowedToChange(GameControl.control.getAllowedToChange());
+            }
+        }
+
         gameStateManager = GameObject.Find("GameManager");
         gameManager = gameStateManager.GetComponent<GameState>();
         controllerNumbers = GetComponentInParent<TankInfo>().getControllerNumbers();
@@ -61,10 +70,12 @@ public class ArmFamilySpawner : MonoBehaviour {
         }
 
     }
+
     public void setClass(characterClass input)
     {
         myClass = input;
     }
+
     void Update()
     {
         if (gameManager.currentGameState == GameState.gameState.lobby)
@@ -78,7 +89,7 @@ public class ArmFamilySpawner : MonoBehaviour {
                 switchArms(-1);
             }
         }
-        else if (gameManager.allowedToSwitchDuringGamePlay)
+        else if (this.getAllowedToChange())
         {
             //do the checking for switch here
             if (Time.time > fireTime)
@@ -94,6 +105,16 @@ public class ArmFamilySpawner : MonoBehaviour {
             }
         }
         
+    }
+
+    public void setAllowedToChange(bool value)
+    {
+        allowedToChangeDuringGameplay = value;
+    }
+
+    public bool getAllowedToChange()
+    {
+        return allowedToChangeDuringGameplay;
     }
 
     void switchArms(int i)
