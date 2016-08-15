@@ -49,8 +49,8 @@ public class Turret : MonoBehaviour
             GameObject shotClone = BulletPoolScript.current.GetPooledObject();
             shotClone.transform.position = this.transform.Find("shotSpawn").transform.position;
             shotClone.transform.rotation = this.transform.rotation;
-            shotClone.SetActive(true);
             shotClone.GetComponent<Shot>().teamNumber = myTankInfo.teamNumber;
+            shotClone.SetActive(true);
             float xDirection = -Mathf.Sin(this.transform.eulerAngles.z * Mathf.Deg2Rad);
             float yDirection = Mathf.Cos(this.transform.eulerAngles.z * Mathf.Deg2Rad);
             shotBody = shotClone.GetComponent<Rigidbody2D>();
