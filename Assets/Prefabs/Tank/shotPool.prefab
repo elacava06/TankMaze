@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pooledObject: {fileID: 149516, guid: e6788790b4ee8b542b759b6185cbf8b8, type: 2}
-  pooledAmount: 75
+  pooledAmount: 300
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
