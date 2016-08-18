@@ -4,11 +4,11 @@ using System.Collections;
 
 public enum characterClass { miner, shooter, everything };  //declaring outside, so it can be used by entire assembly;
 
-
+/*
+ * Represents the point where a player will spawn
+ */
 public class PlayerSpawn : MonoBehaviour {
-    /*
-    * Represents the point where a player will spawn
-    */
+    
     public GameObject tank;
     public int teamNumber;
 

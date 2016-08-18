@@ -18,8 +18,9 @@ public class TankMovement : MonoBehaviour
         gameStateManager = GameObject.Find("GameManager");
         gameManager = gameStateManager.GetComponent<GameState>();
     }
-        // Update is called once per frame
-        void Update()
+    
+    // Update is called once per frame
+    void Update()
     {
         if (gameManager.currentGameState == GameState.gameState.play)
         {

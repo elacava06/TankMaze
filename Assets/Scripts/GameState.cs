@@ -3,20 +3,19 @@ using System.Collections;
 
 public class GameState : MonoBehaviour {
 
-    public enum gameState {lobby,play };
+    public enum gameState { lobby, play };
     public gameState currentGameState = gameState.lobby;
-    //public bool allowedToSwitchDuringGamePlay;
+    public bool allowedToSwitchDuringGamePlay;
 
     void Start()
     {
-        //if (GameControl.control != null)
-        //{
-        //    if (GameControl.control.getUseGameControl())
-        //    {
-        //        Debug.Log("this happened");
-        //        setAllowedToChange(GameControl.control.getAllowedToChange());
-        //    }
-        //}
+        if (GameControl.control != null)
+        {
+            if (GameControl.control.getUseGameControl())
+            {
+                setAllowedToChange(GameControl.control.getAllowedToChange());
+            }
+        }
     }
 
     public void setGameStateToPlay()
@@ -29,8 +28,8 @@ public class GameState : MonoBehaviour {
         currentGameState = gameState.lobby;
     }
 
-    //public void setAllowedToChange(bool value)
-    //{
-    //    allowedToSwitchDuringGamePlay = value;
-    //}
+    public void setAllowedToChange(bool value)
+    {
+        allowedToSwitchDuringGamePlay = value;
+    }
 }
